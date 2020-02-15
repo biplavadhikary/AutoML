@@ -1,0 +1,92 @@
+<html>
+
+<head>
+    <title>Auto ML</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <a class="navbar-brand" href="#"><img src="{{ url_for('static', filename='mlLogo.svg') }} "
+                        target="blank" alt="logo" height="150"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Run Custom Script</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+    <section>
+        <div class="container p-5">
+            <div class="row mb-5 text-center text-white">
+                <div class="col-lg-10 mx-auto">
+                    <h1 class="display-4">Automated Machine Learning</h1>
+                    <p class="lead">Visualize your Test Datasets and Predict anytime</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-5 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg"><img
+                            src=" {{ url_for('static', filename='uploadIcon.svg') }} " alt="" width="200"
+                            class="d-block mx-auto mb-4 rounded-pill">
+
+                        <h6 class="text-center mb-4 text-muted">
+                            Upload your dataset here
+                        </h6>
+
+                        <form action="/handleUpload" method="POST" enctype="multipart/form-data">
+                            <div class="custom-file overflow-hidden rounded-pill mb-5">
+                                <input id="customFile" type="file" class="custom-file-input rounded-pill"
+                                    name="dataset">
+                                <label for="customFile" class="custom-file-label rounded-pill">Choose file</label>
+                            </div>
+
+                            <label for="fileUpload" class="file-upload btn btn-primary btn-block rounded-pill shadow">
+                                <i class="fa fa-upload mr-2"></i>Upload
+                                <input id="fileUpload" type="submit">
+                            </label>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
