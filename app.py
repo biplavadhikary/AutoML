@@ -1,5 +1,5 @@
 import os
-from flask import Flask , render_template, request, url_for
+from flask import Flask , render_template, request, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
 print("Hello")
 
@@ -16,13 +16,22 @@ class FileContents(db.Model):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html',warn=False)
 
 @app.route('/handleUpload',methods=['POST'])
 def handleUpload():
-    f = request.files['dataset']
+    #f = request.files['dataset']
+    if request.files['dataset'].filename == '':
+        return render_template('index.html',warn=True)
+    else:
+        f = request.files.get('dataset')
     f.save(os.path.join('C:/Users/KIIT/Desktop/AutoML/datasets', f.filename))
-    return 'Uploaded {}!!!'.format(f.filename)
+    print('Uploaded {}!!!'.format(f.filename))
+    return redirect(url_for('select'))
+
+@app.route('/select')
+def select():
+    return render_template('selection.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
