@@ -72,8 +72,8 @@
                         <form action="/handleUpload" method="POST" enctype="multipart/form-data">
                             <div class="custom-file overflow-hidden rounded-pill mb-5">
                                 <input id="customFile" type="file" class="custom-file-input rounded-pill"
-                                    name="dataset">
-                                <label for="customFile" class="custom-file-label rounded-pill">Choose file</label>
+                                    name="dataset" onchange="setFileName(this)">
+                                <label id="chosenfile" for="customFile" class="custom-file-label rounded-pill">Choose file</label>
                             </div>
 
                             <label for="fileUpload" class="file-upload btn btn-primary btn-block rounded-pill shadow">
@@ -88,5 +88,12 @@
         </div>
     </section>
 </body>
+
+<script>
+    function setFileName(file) {
+        //document.getElementById('chosenfile').innerHTML = file.value;
+        document.getElementById('chosenfile').innerHTML = "../" + file.files[0].name;
+    }
+</script>
 
 </html>

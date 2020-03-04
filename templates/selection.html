@@ -1,54 +1,91 @@
 <head>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/styleSelection.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/styleSelection.css') }}">
+	<link rel="icon" href="{{ url_for('static', filename='/favicon.ico') }}" type="image/gif" sizes="96x96">
+	<script src="https://kit.fontawesome.com/b1871989d8.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-<div class="continput">
-	<h1>Select Type</h1>
-	<h4>Choose one for your Dataset</h4>
-	<ul>
-		<li>
-			<input checked type="radio" name="1">
-			<label>Classification</label>
-			<div class="bullet">
-				<div class="line zero"></div>
-				<div class="line one"></div>
-				<div class="line two"></div>
-				<div class="line three"></div>
-				<div class="line four"></div>
-				<div class="line five"></div>
-				<div class="line six"></div>
-				<div class="line seven"></div>
+	<form id="dataProp" action="/">
+		<div class="continput">
+			<div class="tab">
+				<h1>Select Type</h1>
+				<h4>Choose one for your Dataset</h4>
+				<ul>
+					<li>
+						<input checked type="radio" name="1">
+						<label>Classification</label>
+						<div class="bullet">
+							<div class="line zero"></div>
+							<div class="line one"></div>
+							<div class="line two"></div>
+							<div class="line three"></div>
+							<div class="line four"></div>
+							<div class="line five"></div>
+							<div class="line six"></div>
+							<div class="line seven"></div>
+						</div>
+					</li>
+					<li>
+						<input type="radio" name="1">
+						<label>Prediction</label>
+						<div class="bullet">
+							<div class="line zero"></div>
+							<div class="line one"></div>
+							<div class="line two"></div>
+							<div class="line three"></div>
+							<div class="line four"></div>
+							<div class="line five"></div>
+							<div class="line six"></div>
+							<div class="line seven"></div>
+						</div>
+					</li>
+					<li>
+						<input type="radio" name="1">
+						<label>Image Classification</label>
+						<div class="bullet">
+							<div class="line zero"></div>
+							<div class="line one"></div>
+							<div class="line two"></div>
+							<div class="line three"></div>
+							<div class="line four"></div>
+							<div class="line five"></div>
+							<div class="line six"></div>
+							<div class="line seven"></div>
+						</div>
+					</li>
+				</ul>
 			</div>
-		</li>
-		<li>
-			<input type="radio" name="1">
-			<label>Prediction</label>
-			<div class="bullet">
-				<div class="line zero"></div>
-				<div class="line one"></div>
-				<div class="line two"></div>
-				<div class="line three"></div>
-				<div class="line four"></div>
-				<div class="line five"></div>
-				<div class="line six"></div>
-				<div class="line seven"></div>
+			<!--style="display:block;"-->
+			<div class="tab">
+				<h1>Specify Your Data</h1>
+				<h4>Choose Target (Y) column</h4>
+				<div class="custom-select" style="width:200px;">
+					<select name="taget_y">
+					  <option value="0">Attributes</option>
+					  <option value="1">Audi</option>
+					  <option value="2">BMW</option>
+					  <option value="3">Citroen</option>
+					  <option value="4">Ford</option>
+					  <option value="5">Honda</option>
+					</select>
+				</div>
 			</div>
-		</li>
-		<li>
-			<input type="radio" name="1">
-			<label>Something Else</label>
-			<div class="bullet">
-				<div class="line zero"></div>
-				<div class="line one"></div>
-				<div class="line two"></div>
-				<div class="line three"></div>
-				<div class="line four"></div>
-				<div class="line five"></div>
-				<div class="line six"></div>
-				<div class="line seven"></div>
+			<div class="slideparent">
+				<div class="slidebox">
+					<a href="#" class="slide previous round" onclick="nextPrev(-1)">
+						<i class='fas fa-chevron-left' style='font-size:24px'></i>
+					</a>
+					<a href="#" class="slide next round" onclick="nextPrev(1)">
+						<i class='fas fa-chevron-right' style='font-size:24px'></i>
+					</a>
 			</div>
-		</li>
-	</ul>
-</div>
+			</div>
+			<div class="step-grp">
+				<span class="step"></span>
+				<span class="step"></span>
+			  </div>
+		</div>
+	</form>
 </body>
+
+<script src="{{ url_for('static', filename='/styleJs.js') }}"></script>

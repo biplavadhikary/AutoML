@@ -33,5 +33,10 @@ def handleUpload():
 def select():
     return render_template('selection.html')
 
+"""@app.route('/plot')
+def plot():
+    import authcharts
+    return authcharts.basicplt()"""
+
 if __name__ == "__main__":
     app.run(debug=True)
