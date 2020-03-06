@@ -34,10 +34,10 @@ function nextPrev(n) {
 
   var x = document.getElementsByClassName("tab");
   // Exit the function if any field in the current tab is invalid:
-  if (!validateForm())
+  if (n == 1 && !validateForm())
     return false;
 
-  var oldTab = currentTab
+  x[currentTab].style.display = "none";
   currentTab = currentTab + n;
 
   if (currentTab >= x.length) {
@@ -45,8 +45,6 @@ function nextPrev(n) {
     document.getElementById("dataProp").submit();
     return false;
   }
-
-  x[oldTab].style.display = "none";
 
   showTab(currentTab);
 }
@@ -61,12 +59,6 @@ function validateForm() {
       y[i].className += " invalid";
       valid = false;
     }
-  }
-
-  y = x[currentTab].getElementsByTagName("select")
-  if(y.length != 0) {
-    if(y[0].value == "#")
-      valid = false;
   }
 
   if (valid) {

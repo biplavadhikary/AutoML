@@ -5,14 +5,14 @@
 </head>
 
 <body>
-	<form id="dataProp" action="{{ url_for('plot') }}" method="POST" enctype="multipart/form-data">
+	<form id="dataProp" action="/plot">
 		<div class="continput">
 			<div class="tab">
 				<h1>Select Type</h1>
 				<h4>Choose one for your Dataset</h4>
 				<ul>
 					<li>
-						<input checked type="radio" name="problem" value="classification">
+						<input checked type="radio" name="1">
 						<label>Classification</label>
 						<div class="bullet">
 							<div class="line zero"></div>
@@ -26,7 +26,7 @@
 						</div>
 					</li>
 					<li>
-						<input type="radio" name="problem" value="prediction">
+						<input type="radio" name="1">
 						<label>Prediction</label>
 						<div class="bullet">
 							<div class="line zero"></div>
@@ -40,7 +40,7 @@
 						</div>
 					</li>
 					<li>
-						<input type="radio" name="problem" value="imgclassification">
+						<input type="radio" name="1">
 						<label>Image Classification</label>
 						<div class="bullet">
 							<div class="line zero"></div>
@@ -60,8 +60,8 @@
 				<h1>Specify Your Data</h1>
 				<h4>Choose Target (Y) column</h4>
 				<div class="custom-select" style="width:200px;">
-					<select name="target_y">
-					  <option value="#">Attributes</option>
+					<select name="taget_y">
+					  <option value="0">Attributes</option>
 					  {% for i in attrib %}
 					  	<option value="{{ i }}">{{ i }}</option>
 					  {% endfor %}

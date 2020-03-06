@@ -78,18 +78,19 @@
 }
 
   .navbar-collapse {
-    background-color: rgba(25, 96, 143, 0.3);
+    background-color: #fff;
     padding: 20px;
     z-index: 55;
   }
 
-  nav ul li > a {
-    color: whitesmoke !important;
- }
-  nav ul li > a:hover {
-    opacity: 0.8;
- }
-  
+  nav {
+    ul li > a {
+      color: #807cb9 !important;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
 }
 
 /* Mobile -btn */
@@ -98,9 +99,9 @@
 }
 .navbar-dark .navbar-toggler {
   border-color: transparent !important;
-}
-.navbar-dark .navbar-toggler:focus {
-  border-color: transparent !important;
+  &:focus {
+    border-color: transparent !important;
+  }
 }
 
 /* ========================
