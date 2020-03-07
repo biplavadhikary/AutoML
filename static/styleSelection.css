@@ -10,8 +10,7 @@ body {
 	font-weight: 500;
 	text-transform: uppercase;
 	color: #2E8612;
-	overflow: hidden;
-	height: 100%;
+	overflow: auto;
 }
 
 h1 {
@@ -517,8 +516,8 @@ input.invalid {
 	right: 0;
 	z-index: 99;
 	overflow-x: hidden;
-	overflow-y: scroll;
-    max-height: 400px;
+	overflow-y: auto;
+    max-height: 300px;
   }
   
   /* Hide the items when the select box is closed: */
@@ -551,7 +550,7 @@ input.invalid {
 	background-image: -webkit-gradient(linear,
 									   left bottom,
 									   left top,
-									   color-stop(0.44, rgb(191, 238, 180)),
-									   color-stop(0.72, rgb(102, 216, 87)),
-									   color-stop(0.86, rgb(42, 148, 28)));
+									   color-stop(0.44, rgb(156, 238, 137)),
+									   color-stop(0.72, rgb(88, 182, 75)),
+									   color-stop(0.86, rgb(38, 129, 27)));
 }

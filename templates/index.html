@@ -72,7 +72,7 @@
                         <form action="/handleUpload" method="POST" enctype="multipart/form-data">
                             <div class="custom-file overflow-hidden rounded-pill mb-5">
                                 <input id="customFile" type="file" class="custom-file-input rounded-pill"
-                                    name="dataset" onchange="setFileName(this)">
+                                    name="dataset" onchange="setFileName(this)" accept=".csv,.tsv">
                                 <label id="chosenfile" for="customFile" class="custom-file-label rounded-pill">Choose file</label>
                             </div>
 

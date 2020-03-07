@@ -12,7 +12,6 @@ db = SQLAlchemy(app)
 
 @app.route('/datasets/<path:filename>', methods=["GET"])
 def svgRender(filename):
-    print('Called here')
     return send_from_directory(app.config['DATASET_FOLDER'], filename)
 
 class FileContents(db.Model):
@@ -21,7 +20,7 @@ class FileContents(db.Model):
     attrib_list = db.Column(db.String(500))
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
     completed = db.Column(db.Integer, default=0)
-    #data = db.1Column(db.LargeBinary)
+    #data = db.Column(db.LargeBinary)
 
     def __repr__ (self):
         return f'<Added {self.id}>'

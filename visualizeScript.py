@@ -1,5 +1,5 @@
 import pandas as pd
-import os
+import os, sys
 from autoviz.AutoViz_Class import AutoViz_Class
 
 def buildSvg(folderName, targetY):
@@ -8,14 +8,18 @@ def buildSvg(folderName, targetY):
     df = pd.read_csv(f'datasets/{folderName}.csv')
     os.mkdir(f'datasets/{folderName}') 
 
-    sep = ' '
+    #print to logs instead of stdout
+    stdoutSave = sys.stdout
+    sys.stdout = open(f'datasets/logs/{folderName}.txt', 'w')
+
+    sep = ','
     target = targetY
 
     dft = Av.AutoViz(
-        '',
-        sep,
-        target,
-        df,
+        filename='',
+        sep=sep,
+        depVar=target,
+        dfte=df,
         header=0,
         verbose=2,
         lowess=False,
@@ -23,6 +27,10 @@ def buildSvg(folderName, targetY):
         max_rows_analyzed=150000,
         max_cols_analyzed=30,
     )
+
+    sys.stdout.close()
+    #restore stdout
+    sys.stdout = stdoutSave
 
     PltType = [Av.scatter_plot, Av.pair_scatter, Av.dist_plot, Av.pivot_plot, Av.violin_plot, Av.heat_map, Av.bar_plot, Av.date_plot]
 
