@@ -34,7 +34,7 @@ function nextPrev(n) {
 
   var x = document.getElementsByClassName("tab");
   // Exit the function if any field in the current tab is invalid:
-  if (!validateForm())
+  if (n == 1&&!validateForm())
     return false;
 
   var oldTab = currentTab

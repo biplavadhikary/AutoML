@@ -6,7 +6,10 @@
 body {
     font-family: verdana;
     color: #121212;
-    background: #ffffff;
+    background: #005AA7;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFFDE4, #005AA7);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FFFDE4, #005AA7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 hgroup {
@@ -27,40 +30,11 @@ hgroup h2 {
     letter-spacing: .4em;
 }
 
-#image-slider {
+.box {
+    max-width: 95%;
+    margin: 30px auto;
+    border: 2px solid navy;
+    border-radius: 25px;
+    opacity: 0.7;
     display: block;
-    margin: 0 auto;
-    width: 500px;
-    height: 300px;
-    overflow: hidden;
-    background: #fff;
-}
-#image-slider ul {
-    list-style: none;
-}
-#image-slider ul li {
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-}
-#image-slider ul img {
-    width: 100%;
-    max-width: 500px;
-    height: 300px;
-}
-.controls {
-    padding: 1em 0;
-    width: 500px;
-    display: block;
-    margin: 0 auto;
-}
-.controls a {
-    text-decoration: none;
-    color: #34495e;
-}
-.controls a:hover {
-    cursor: pointer;
-}
-.img-up {
-    margin-top: -300px;
 }

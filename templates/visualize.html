@@ -13,21 +13,11 @@
         <h1>Plots</h1>
         <h2>Predictives vs Target Variable</h2>
     </hgroup>
- <!--   <div id="image-slider">
-        <ul> -->
-            {% for eachtype in plottypes -%}
-                {% for plotloc in eachtype['loc'] -%}
-                    <!--<li>--><img src="{{ url_for('svgRender', filename = folderName+'/'+plotloc) }}"><!--</li>-->
-                {%- endfor %}
+        {% for eachtype in plottypes -%}
+            {% for plotloc in eachtype['loc'] -%}
+                <img class="box" src="{{ url_for('svgRender', filename = folderName+'/'+plotloc) }}">
             {%- endfor %}
-            <!--<li><img src="https://unsplash.imgix.net/reserve/N13RIliTTASBbuYyszgq_P9020914-54.jpg?fit=crop&fm=jpg&h=800&q=75&w=1050"></li>
-            <li><img src="https://unsplash.imgix.net/uploads/1413386993023a925afb4/4e769802?fit=crop&fm=jpg&h=700&q=75&w=1050"></li> -->
-<!--        </ul>
-    </div>
-    <div class="controls">
-        <a id="previous" title="previous-image">Previous</a>
-        <a  id="next" title="next-image">Next</a>
-    </div> -->
+        {%- endfor %}
 </body>
 
 <script src="{{ url_for('static', filename='plots.js') }}"></script>

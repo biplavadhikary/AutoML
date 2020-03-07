@@ -516,9 +516,6 @@ input.invalid {
 	left: 0;
 	right: 0;
 	z-index: 99;
-	overflow-x: hidden;
-	overflow-y: scroll;
-    max-height: 400px;
   }
   
   /* Hide the items when the select box is closed: */
@@ -529,29 +526,3 @@ input.invalid {
   .select-items div:hover, .same-as-selected {
 	background-color: rgba(0, 0, 0, 0.1);
   }
-
-  
-.select-items::-webkit-scrollbar-track
-{
-	box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	background-color: #F5F5F5;
-	border-radius: 10px;
-}
-
-.select-items::-webkit-scrollbar
-{
-	width: 10px;
-	background-color: #F5F5F5;
-}
-
-.select-items::-webkit-scrollbar-thumb
-{
-	border-radius: 10px;
-	background-image: -webkit-gradient(linear,
-									   left bottom,
-									   left top,
-									   color-stop(0.44, rgb(191, 238, 180)),
-									   color-stop(0.72, rgb(102, 216, 87)),
-									   color-stop(0.86, rgb(42, 148, 28)));
-}

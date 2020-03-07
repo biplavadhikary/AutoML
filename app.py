@@ -71,7 +71,7 @@ def select():
     return render_template('selection.html',attrib=attrib)
 
 @app.route('/plot',methods=['POST'])
-def plot():
+def plot():  
     if request.method == 'POST':
         target = request.form.get('target_y')
         folderName = session['datasetName'].split('.')[0]

@@ -4,7 +4,7 @@ from autoviz.AutoViz_Class import AutoViz_Class
 
 def buildSvg(folderName, targetY):
     Av = AutoViz_Class()
-    print(f'foldername: {folderName},  target={targetY}')
+    #print(f'foldername: {folderName},  target={targetY}')
     df = pd.read_csv(f'datasets/{folderName}.csv')
     os.mkdir(f'datasets/{folderName}') 
 
