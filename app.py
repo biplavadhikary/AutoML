@@ -69,14 +69,21 @@ def select():
         attrib = ['Upload your dataset first', 'Go Back To Index']
     return render_template('selection.html',attrib=attrib)
 
-@app.route('/plot',methods=['POST'])
+@app.route('/plot')
 def plot():  
+    target = session['target_y']
+    folderName = session['datasetName'].split('.')[0]
+    import visualizeScript as vs
+    print('Plotting Started ..... ')
+    plottypes = vs.buildSvg(folderName,target)
+    print('Plotting Finished ')
+    return render_template('visualize.html',folderName=folderName,plottypes=plottypes)
+
+@app.route('/plot-proc',methods=['POST'])
+def plotProc():
     if request.method == 'POST':
-        target = request.form.get('target_y')
-        folderName = session['datasetName'].split('.')[0]
-        import visualizeScript as vs
-        plottypes = vs.buildSvg(folderName,target)
-        return render_template('visualize.html',folderName=folderName,plottypes=plottypes)
+        session['target_y'] = request.form.get('target_y')
+        return render_template('preloading.html')
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0',debug=True)

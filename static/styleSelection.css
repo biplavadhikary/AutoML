@@ -4,12 +4,13 @@
 }
 
 body {
-	background: -webkit-radial-gradient(circle, Yellow, Green);
-	background: radial-gradient(circle, Yellow, Green);
+	background: #00c3ff;
+	background: -webkit-linear-gradient(to right, #ffff1c, #00c3ff);
+	background: linear-gradient(to right, #ffff1c, #00c3ff);
+	color: darkslategray;
 	font-family: 'Roboto';
 	font-weight: 500;
 	text-transform: uppercase;
-	color: #2E8612;
 	overflow: auto;
 }
 
@@ -476,7 +477,9 @@ input.invalid {
   }
   
   .select-selected {
-	background-color: Green;
+	background: #A1FFCE;
+	background: -webkit-linear-gradient(to right, #FAFFD1, #A1FFCE);
+	background: linear-gradient(to right, #FAFFD1, #A1FFCE);
 	border: 5px solid black;
   }
   
@@ -500,17 +503,20 @@ input.invalid {
   
   /* style the items (options), including the selected item: */
   .select-items div,.select-selected {
-	color: #ffffff;
+	color: inherit;
 	padding: 8px 16px;
 	border: 1px solid transparent;
 	border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+	overflow-x: hidden;
 	cursor: pointer;
   }
   
   /* Style items (options): */
   .select-items {
 	position: absolute;
-	background-color: rgb(5, 175, 5);
+	background: #a8ff78;
+	background: -webkit-linear-gradient(to right, #a8ff78, #78ffd6);
+	background: linear-gradient(to right, #a8ff78, #78ffd6);
 	top: 100%;
 	left: 0;
 	right: 0;

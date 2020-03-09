@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Data Processing</title>
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/gif" sizes="96x96">
+  <link rel="stylesheet" href="{{ url_for('static', filename='preloading.css') }}">
+</head>
+
+<body>
+	<div id="loader-wrapper">
+		<div id="loader"></div>
+		<div class="loader-section section-left"></div>
+		<div class="loader-section section-right"></div>
+	</div> 
+</body>
+
+<script>
+	window.onload = function() {
+		window.location.href = "/plot";
+	}
+</script>
+
+</html>
