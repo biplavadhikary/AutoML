@@ -1,9 +1,12 @@
 # libraries for used in main app
 
-def addPrefix(filename):
+def generateHash(filename):
     from hashlib import md5
     from time import localtime
-    return "%s_%s" % (md5(str(localtime()).encode('utf-8')).hexdigest(), filename)
+    return md5(str(localtime()).encode('utf-8')).hexdigest()
+
+def addPrefix(hashCode, filename):
+    return "%s_%s" % (hashCode, filename)
 
 def extractAttribList(path):
     import csv

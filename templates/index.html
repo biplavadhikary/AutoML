@@ -2,19 +2,12 @@
 
 <head>
     <title>Auto ML</title>
-    {% if warn %}
-        <script>
-            window.onload = function(){
-                alert('You have to choose a Dataset to move on');
-        }
-        </script>
-    {% endif %}
-
     {% include 'cdns.html' %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
 </head>
 
 <body>
+    <!-- Navbar -->
     <header>
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-dark">
@@ -27,7 +20,6 @@
 
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav mr-auto">
-
                         <li class="nav-item active">
                             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                         </li>
@@ -50,6 +42,7 @@
     </header>
 
 
+    <!-- Upload Window -->
     <section>
         <div class="container p-5">
             <div class="row mb-5 text-center text-white">
@@ -85,8 +78,41 @@
                     </div>
                 </div>
             </div>
+            <!-- Token Input Button -->
+            <div class="row" style="display: flex; justify-content: center; flex-direction: column;">
+                <p id="alr-up" class="text-white">Already Uploaded?</p>
+                <div>
+                    <button id="click-here" type="button" class="btn btn-light" data-toggle="modal" data-target="#tokenModal">Click here</button>
+                </div>
+            </div>
         </div>
     </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="tokenModal" tabindex="-1" role="dialog" aria-labelledby="tokenModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Token</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="tokenForm" action="/checkToken" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                  <label for="token-code" class="col-form-label">Enter your Token</label>
+                  <input type="text" name="tokenCode" class="form-control" id="token-code">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" form="tokenForm">Verify Token</button>
+            </div>
+          </div>
+        </div>
+      </div>
 </body>
 
 <script>
@@ -95,5 +121,19 @@
         document.getElementById('chosenfile').innerHTML = "../" + file.files[0].name;
     }
 </script>
+{% if noDataset %}
+<script>
+    window.onload = function(){
+        alert('You have to choose a Dataset to move on!');
+}
+</script>
+{% endif %}
+{% if wrongToken %}
+<script>
+    window.onload = function(){
+        alert('Dataset does not Exists!');
+}
+</script>
+{% endif %}
 
 </html>

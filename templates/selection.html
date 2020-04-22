@@ -2,6 +2,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/styleSelection.css') }}">
 	<link rel="icon" href="{{ url_for('static', filename='/favicon.ico') }}" type="image/gif" sizes="96x96">
 	<script src="https://kit.fontawesome.com/b1871989d8.js" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -40,8 +41,8 @@
 						</div>
 					</li>
 					<li>
-						<input type="radio" name="problem" value="imgclassification">
-						<label>Image Classification</label>
+						<input type="radio" name="problem" value="visualization">
+						<label>Visualize the Data</label>
 						<div class="bullet">
 							<div class="line zero"></div>
 							<div class="line one"></div>
@@ -67,6 +68,12 @@
 					  {% endfor %}
 					</select>
 				</div>
+				<!--Toggle-->
+				<h4 style="margin-bottom: 10px;">Press Load if You have already created the Model</h4>
+				<div class="toggle toggle--neon">
+					<input name="load_model" type="checkbox" id="toggle--neon" class="toggle--checkbox">
+					<label class="toggle--btn" for="toggle--neon" data-label-on="Load"  data-label-off="Create"></label>
+				</div>
 			</div>
 			<div class="slideparent">
 				<div class="slidebox">
@@ -84,6 +91,28 @@
 			  </div>
 		</div>
 	</form>
+	<div class="footerDrawer">
+		<div class="open">Want to use this dataset again?</div>
+		<div class="content">
+			<div style="padding: 10px 0; width: 100%;">Click below to copy the token</div>
+			<input id="token" class="input100" type="text" name="name" 
+			value="{% if 'datasetName' in session.keys() %}{{session['datasetName'].split('_')[0]}}{% else %}{{'Not Dataset Chosen'}}{% endif %}" placeholder="Token" readonly>
+			<div class="tooltip">
+				<a onclick="copyToClipboard()" onmouseout="outFunc()" href="#" class="copy-btn">
+					<span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+					Copy Token
+				</a>
+			</div>
+		</div>
+	</div>
+	
 </body>
 
 <script src="{{ url_for('static', filename='/styleJs.js') }}"></script>
+{% if showDatasetName %}
+<script>
+	window.onload = function(){
+		alert('Your Dataset is: {{ session["datasetTrueName"] }}!');
+}
+</script>
+{% endif %}

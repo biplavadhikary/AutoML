@@ -148,3 +148,34 @@ function closeAllSelect(elmnt) {
 }
 
 document.addEventListener("click", closeAllSelect);
+
+/* ======================================================
+Footer
+====================================================== */
+
+$(document).ready(function() {
+
+  $('.footerDrawer .open').on('click', function() {
+
+    $('.footerDrawer .content').slideToggle();
+
+  });
+
+});
+
+/* Button Copy to Clipboard */
+
+function copyToClipboard() {
+  var copyText = document.getElementById("token");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  
+  var tooltip = document.getElementById("myTooltip");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc() {
+  var tooltip = document.getElementById("myTooltip");
+  tooltip.innerHTML = "Copy to clipboard";
+}

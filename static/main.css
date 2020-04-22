@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,300,500,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+::selection {
+	background: none;
+}
 
 .file-upload input[type='submit'] {
     display: none;
@@ -26,7 +32,6 @@
   }
 
 /*NavBar Styling*/
-@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 
 .navbar {
   padding-top: 80px;
@@ -116,4 +121,23 @@
   .text-white {
     font-family: "Open Sans", sans-serif;
   }
+}
+
+.modal-open .container-fluid, .modal-open .container {
+  filter: blur(50px);
+  -webkit-filter: blur(50px);
+  -moz-filter: blur(50px);
+}
+
+#alr-up {
+  text-align: center;
+  font-size: 16px;
+  font-family: 'Roboto';
+  font-weight: 200;
+  margin: 1rem 0 0.3rem 0;
+}
+
+#click-here {
+  display: block;
+  margin: 0 auto;
 }
