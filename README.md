@@ -13,11 +13,11 @@
  * Sessions
  * Dashboard for viewing csv sheets in the browser
  * Loading Page ( During Script Processing )
+ * Classification ( Script Needed )
 
  To be Added:
 
  * Predictions ( Script Needed )
- * Classification ( Script Needed )
  * Proper Error Handling required for certain Modules
  * Refined and more Responsiveness
 
