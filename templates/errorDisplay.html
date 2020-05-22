@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+        integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='errorStyle.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-6 offset-lg-3 col-sm-6 offset-sm-3 col-12 p-3 error-main">
+                <div class="row">
+                    <div class="col-lg-8 col-12 col-sm-10 offset-lg-2 offset-sm-1">
+                        <h1 class="m-0">{{ error['code'] }}</h1>
+                        <h6>{{ error['title'] }}</h6>
+                        <p>
+                            <span class="text-info">{{ error['info'] }}</span>
+                        </p>
+                        <span class="text-center">
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <a href="select/1" class="btn btn-dark ">Back to Model Selection</a>
+                                <a href="/" class="btn btn-light ">Upload Window</a>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

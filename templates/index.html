@@ -24,16 +24,13 @@
                             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
+                            <a class="nav-link" href="/about">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Run Custom Script</a>
+                            <a class="nav-link" href="/select/0">Model Selection</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Blog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
+                            <a class="nav-link" href="#">Home Page</a>
                         </li>
                     </ul>
                 </div>
@@ -65,7 +62,7 @@
                         <form action="/handleUpload" method="POST" enctype="multipart/form-data">
                             <div class="custom-file overflow-hidden rounded-pill mb-5">
                                 <input id="customFile" type="file" class="custom-file-input rounded-pill"
-                                    name="dataset" onchange="setFileName(this)" accept=".csv,.tsv">
+                                    name="dataset" onchange="setFileName(this)" accept=".csv,.tsv" required>
                                 <label id="chosenfile" for="customFile" class="custom-file-label rounded-pill">Choose file</label>
                             </div>
 

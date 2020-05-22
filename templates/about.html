@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% include 'cdns.html' %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <title>About</title>
+</head>
+<body style="background: rgb(60, 60, 60);">
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark" style="padding-top: 40px; padding-bottom: 40px;">
+                <a class="navbar-brand" href="#"><img src="{{ url_for('static', filename='mlLogo.svg') }} "
+                        target="blank" alt="logo" height="150"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/select/0">Model Selection</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Home Page</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <object data="{{ url_for('static', filename='about.pdf') }}" type="application/pdf" style="min-height:100vh; width:100%">
+        <embed src="{{ url_for('static', filename='about.pdf') }}" type="application/pdf" style="min-height:100vh; width:100%" />
+    </object>
+</body>
+</html>

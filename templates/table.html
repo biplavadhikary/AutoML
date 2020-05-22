@@ -22,6 +22,22 @@
             <div id="test_table">
             </div>
         </div>
+        <div class="text-center mb-3">
+            <div id="csv-download-btn" class="btn-group m-3" role="group" style="display: none">
+                <a name="load_data" class="btn btn-secondary" 
+                href="{{ url_for('getFile', filename = testURL) }}" 
+                download="{{ session['datasetName'].split('_')[1] }}_test_results.csv">Download it</a>
+                <a class="btn btn-light"
+                href="/select/1">Model Selection</a>
+                <a class="btn btn-light"
+                href="/">Upload Window</a>
+            </div>
+        </div>
+        <!--<div class="m-4" style="text-align: center; display: none">
+            <a name="load_data" id="load_data" class="btn btn-primary btn-lg" 
+            href="{{ url_for('getFile', filename = testURL) }}" 
+            download="{{ session['datasetName'].split('_')[1] }}_test_results.csv">Download it</a>
+        </div>-->
     </div>
 </body>
 
@@ -32,7 +48,7 @@
         $('#load_data').click(function () {
             $('#dname').removeClass('middle').addClass('top');
             $.ajax({
-                url: "{{ url_for('svgRender', filename = session['datasetName']) }}",
+                url: "{{ url_for('getFile', filename = testURL) }}",
                 dataType: "text",
                 success: function (data) {
                     var lines = data.split(/\r?\n|\r/);
@@ -55,6 +71,7 @@
                 }
             });
             this.disabled = true;
+            document.getElementById('csv-download-btn').style.display = 'block';
         });
     });
 </script>

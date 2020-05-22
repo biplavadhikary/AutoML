@@ -63,9 +63,11 @@ function validateForm() {
     }
   }
 
-  y = x[currentTab].getElementsByTagName("select")
-  if(y.length != 0) {
-    if(y[0].value == "#")
+  if (currentTab == 1) {
+    var y1 = document.getElementById("target_y").value;
+    var y2 = document.getElementById("timer").value;
+
+    if(y1 == "#" || y2 == "#")
       valid = false;
   }
 

@@ -6,11 +6,13 @@ def buildSvg(folderName, targetY):
     Av = AutoViz_Class()
     #print(f'foldername: {folderName},  target={targetY}')
     df = pd.read_csv(f'datasets/{folderName}.csv')
-    os.mkdir(f'datasets/{folderName}') 
+
+    if not(os.path.exists(f'datasets/{folderName}')):
+        os.mkdir(f'datasets/{folderName}') 
 
     #print to logs instead of stdout
     stdoutSave = sys.stdout
-    sys.stdout = open(f'datasets/logs/{folderName}.txt', 'w')
+    sys.stdout = open(f'datasets/vizLogs/{folderName}.txt', 'w')
 
     sep = ','
     target = targetY
