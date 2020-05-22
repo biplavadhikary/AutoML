@@ -13,14 +13,15 @@
  * Sessions
  * Dashboard for viewing csv sheets in the browser
  * Loading Page ( During Script Processing )
- * Classification ( Script Needed )
+ * Classification
+ * Error Handling ( 70% )
 
  To be Added:
 
  * Predictions ( Script Needed )
- * Proper Error Handling required for certain Modules
- * Refined and more Responsiveness
+ * Few other Error Handlers
+ * Save some session values to DB
 
  Planned: 
 
- * Image Classification
+ * Image Classification ( Dropped )
