@@ -4,6 +4,8 @@
     <title>Model Display</title>
     {% include 'cdns.html' %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vs.css') }}">
+    <script src="{{ url_for('static', filename='highlight.pack.js') }}"></script>
 </head>
 
 <body>
@@ -70,7 +72,7 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Click the download Button at the bottom to download the Script</h5>
-                        <p class="card-text" id="pycode">Code Here</p>
+                        <pre class="card-text"><code class="language-python" id="pycode">{{ code|safe }}</code></pre>
                         <a href="{{ url_for('getFile', filename = folderName+'/pipeline.py') }}" 
                         class="btn btn-primary" download="{{ folderName.split('_')[1] }}_pipeline.py">Download it</a>
                     </div>
@@ -85,7 +87,7 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Accuracy: {{ acc }} % </h5>
-                        <p class="card-text" id="log">Log Here</p>
+                        <p class="card-text" id="log">{{ log|safe }}</p>
                     </div>
                 </div>
             </div>
@@ -98,15 +100,17 @@
         document.getElementById('chosenfile').innerHTML = "../" + file.files[0].name;
     }
 
-    var code = `{{ code|safe }}`
-    var log = `{{ log|safe }}`
-    document.getElementById('pycode').innerHTML = code
-    document.getElementById('log').innerHTML = log
+    //var code = `{{ code|safe }}`
+    //var log = `{{ log|safe }}`
+    //document.getElementById('pycode').innerHTML = code
+    //document.getElementById('log').innerHTML = log
 
     function setFileName(file) {
         document.getElementById('chosenfile').innerHTML = "../" + file.files[0].name;
     }
 </script>
+
+<script>hljs.initHighlightingOnLoad();</script>
 
 {% if noDataset %}
 <script>

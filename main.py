@@ -143,7 +143,7 @@ def generate():
     else:
         if session['load_model'] != 'on':
             from classificationScript import generateClfModel
-            acc = generateClfModel(folderName, target, session['timer']/60)
+            acc = generateClfModel(folderName, target, int(session['timer'])/60)
             session['modelExists'] = True
             session['accuracy'] = acc
 
@@ -159,7 +159,7 @@ def generate():
         code, log = '',''
         with open(f'./datasets/{folderName}/pipeline.py', 'r') as codeFile, \
                 open(f'datasets/clfLogs/{folderName}.txt', 'r') as logFile:
-            code = codeFile.read().replace('\n', '<br>').replace('\\', '&#92;')
+            code = codeFile.read().replace('\\', '&#92;')
             log = logFile.read().replace('\n', '<br>').replace('\\', '&#92;')
 
         return render_template('modelDisplay.html',folderName=folderName, code=code, log=log, acc=session['accuracy']*100)
