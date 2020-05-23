@@ -5,7 +5,8 @@ from datetime import datetime
 from visualizeScript import buildSvg
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.urandom(24)
+#app.config['SECRET_KEY'] = os.urandom(24)
+app.config['SECRET_KEY'] = b'\x8d[\xea\xfa\xa2?\x7fg\xa7\xad\xe1\xf4NhUu\xe1\xa8\xd9,*C\x8f\xb0'
 app.config['DATASET_FOLDER'] = './datasets'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///filestorage.db'
 db = SQLAlchemy(app)
