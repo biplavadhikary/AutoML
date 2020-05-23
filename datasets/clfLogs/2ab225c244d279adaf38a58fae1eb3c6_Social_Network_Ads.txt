@@ -1,12 +1,0 @@
-Running for 0.08333333333333333 mins
-31 operators have been imported by TPOT.
-Optimization Progress:   0%|                                                                     | 0/50 [00:00<?, ?pipeline/s]Optimization Progress:  18%|##########9                                                  | 9/50 [00:00<00:00, 43.18pipeline/s]Optimization Progress:  22%|#############2                                              | 11/50 [00:00<00:03, 10.03pipeline/s]Optimization Progress:  26%|###############6                                            | 13/50 [00:01<00:07,  4.68pipeline/s]Optimization Progress:  32%|###################2                                        | 16/50 [00:01<00:05,  6.00pipeline/s]Optimization Progress:  42%|#########################2                                  | 21/50 [00:02<00:04,  5.97pipeline/s]Optimization Progress:  46%|###########################6                                | 23/50 [00:04<00:08,  3.04pipeline/s]                                                                                                                              
-Optimization Progress:  46%|###########################6                                | 23/50 [00:04<00:08,  3.04pipeline/s]                                                                                                                              0.11 minutes have elapsed. TPOT will close down.
-TPOT closed during evaluation in one generation.
-WARNING: TPOT may not provide a good pipeline if TPOT is stopped/interrupted in a early generation.
-Optimization Progress:  46%|###########################6                                | 23/50 [00:04<00:08,  3.04pipeline/s]                                                                                                                              
-Optimization Progress:  46%|###########################6                                | 23/50 [00:04<00:08,  3.04pipeline/s]                                                                                                                              
-TPOT closed prematurely. Will use the current best pipeline.
-Optimization Progress:  46%|###########################6                                | 23/50 [00:04<00:08,  3.04pipeline/s]                                                                                                                              ################
- Accuracy Score:  0.925 
-################

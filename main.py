@@ -82,10 +82,12 @@ def select(showDatasetName):
     else:
         attrib = ['Upload your dataset first', 'Go Back To Index']
 
-    if ('modelExists' not in session.keys()):
-        session['modelExists'] = False
+    if ('modelClfExists' not in session.keys()):
+        session['modelClfExists'] = False
     if('vizPlotsExists' not in session.keys()):
         session['vizPlotsExists'] = False
+    if('modelRegExists' not in session.keys()):
+        session['modelRegExists'] = False
 
     if showDatasetName == '0':
         return render_template('selection.html',attrib=attrib,showDatasetName=False)
@@ -135,21 +137,15 @@ def generate():
 
     # regression processing
     elif problem == 'prediction':
-        if session['load_model'] == 'on':
-            return '<h1>Prediction (Load) is coming in Future</h1>'
-        else:
-            return redirect(url_for('renderCsv'))
-
-    # classification processing
-    else:
+        
         if session['load_model'] != 'on':
-            from classificationScript import generateClfModel
-            acc = generateClfModel(folderName, target, int(session['timer'])/60)
-            session['modelExists'] = True
+            from regressionScript import generateRegModel
+            acc = generateRegModel(folderName, target, int(session['timer'])/60)
+            session['modelRegExists'] = True
             session['accuracy'] = acc
 
         else:
-            if (session['modelExists'] == False):
+            if (session['modelRegExists'] == False):
                 error = {
                     'code': 'Error',
                     'title': 'Model does not Exists',
@@ -158,7 +154,32 @@ def generate():
                 return render_template('errorDisplay.html', error=error)
 
         code, log = '',''
-        with open(f'./datasets/{folderName}/pipeline.py', 'r') as codeFile, \
+        with open(f'./datasets/{folderName}/pipelineReg.py', 'r') as codeFile, \
+                open(f'datasets/regLogs/{folderName}.txt', 'r') as logFile:
+            code = codeFile.read().replace('\\', '&#92;')
+            log = logFile.read().replace('\n', '<br>').replace('\\', '&#92;')
+
+        return render_template('modelDisplay.html',folderName=folderName, code=code, log=log, acc=session['accuracy']*100)
+
+    # classification processing
+    else:
+        if session['load_model'] != 'on':
+            from classificationScript import generateClfModel
+            acc = generateClfModel(folderName, target, int(session['timer'])/60)
+            session['modelClfExists'] = True
+            session['accuracy'] = acc
+
+        else:
+            if (session['modelClfExists'] == False):
+                error = {
+                    'code': 'Error',
+                    'title': 'Model does not Exists',
+                    'info': 'Please create the Model first from the Selection Window'
+                }
+                return render_template('errorDisplay.html', error=error)
+
+        code, log = '',''
+        with open(f'./datasets/{folderName}/pipelineClf.py', 'r') as codeFile, \
                 open(f'datasets/clfLogs/{folderName}.txt', 'r') as logFile:
             code = codeFile.read().replace('\\', '&#92;')
             log = logFile.read().replace('\n', '<br>').replace('\\', '&#92;')
@@ -186,13 +207,18 @@ def renderTable():
     target = session['target_y']
     folderName = session['datasetName'].split('.')[0]
     testURL = f'{folderName}/test_predicted.csv'
+    status = None
 
-    from classificationScript import predict_csv
-    
-    status = predict_csv(folderName, target)
+    if problem ==  'prediction':
+        from regressionScript import predict_csv_reg
+        status = predict_csv_reg(folderName, target)
+
+    else:
+        from classificationScript import predict_csv_clf
+        status = predict_csv_clf(folderName, target)
 
     if (status == True):
-        return render_template('table.html', testURL=testURL)
+        return render_template('table.html', testURL=testURL, folderName=folderName)
     else:
         error = {
             'code': 'Error',
@@ -233,10 +259,12 @@ def pageNotFound(e):
     return render_template('errorDisplay.html', error=error)
 
 def popSessionKeys():
-    if 'modelExists' in session.keys():
-        session.pop('modelExists')
+    if 'modelClfExists' in session.keys():
+        session.pop('modelClfExists')
     if 'mvizPlotsExists' in session.keys():
         session.pop('mvizPlotsExists')
+    if 'modelRegExists' in session.keys():
+        session.pop('modelRegExists')
 
 if __name__ == "__main__":
     app.run(host= '0.0.0.0', debug=True)
