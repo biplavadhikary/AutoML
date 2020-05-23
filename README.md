@@ -14,11 +14,11 @@
  * Dashboard for viewing csv sheets in the browser
  * Loading Page ( During Script Processing )
  * Classification
+ * Predictions
  * Error Handling ( 70% )
 
  To be Added:
 
- * Predictions ( Script Needed )
  * Few other Error Handlers
  * Save some session values to DB
 
