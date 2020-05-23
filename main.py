@@ -144,7 +144,7 @@ def generate():
         if session['load_model'] != 'on':
             from classificationScript import generateClfModel
             #acc = generateClfModel(folderName, target, int(session['timer']))
-            acc = generateClfModel(folderName, target, 20)
+            acc = generateClfModel(folderName, target, 20/60)
             session['modelExists'] = True
             session['accuracy'] = acc
 
