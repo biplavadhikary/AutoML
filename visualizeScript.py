@@ -1,6 +1,6 @@
 import pandas as pd
 import os, sys
-from autoviz.AutoViz_Class import AutoViz_Class
+from viz.AutoViz_Class import AutoViz_Class
 
 def buildSvg(folderName, targetY):
     Av = AutoViz_Class()

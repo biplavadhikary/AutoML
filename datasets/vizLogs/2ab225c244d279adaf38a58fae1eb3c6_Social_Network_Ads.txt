@@ -4,5 +4,9 @@ Classifying variables in data set...
         This does not include the Target column(s)
     1 variables removed since they were ID or low-information variables
     List of variables removed: ['User ID']
-No continuous variables in this data set. No visualization can be performed
-Not able to read or load file. Please check your inputs and try again...
+Nothing to add Plot not being added
+Nothing to add Plot not being added
+Could not draw Pivot Charts against Dependent Variable
+Nothing to add Plot not being added
+All plots done
+Time to run AutoViz (in seconds) = 1.229
