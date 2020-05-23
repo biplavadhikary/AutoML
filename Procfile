@@ -1,0 +1,1 @@
+web: gunicorn AutoMl.wsgi --log-file -

@@ -1,7 +1,6 @@
 {
-  "arch": "x86_64",
-  "build": "py37_1",
-  "build_number": 1,
+  "build": "py37_3",
+  "build_number": 3,
   "channel": "https://repo.anaconda.com/pkgs/main/win-64",
   "constrains": [],
   "depends": [
@@ -9,7 +8,7 @@
     "setuptools",
     "wheel"
   ],
-  "extracted_package_dir": "C:\\Users\\KIIT\\AppData\\Local\\conda\\conda\\pkgs\\pip-20.0.2-py37_1",
+  "extracted_package_dir": "C:\\Users\\KIIT\\.conda\\pkgs\\pip-20.0.2-py37_3",
   "features": "",
   "files": [
     "Lib/site-packages/pip-20.0.2-py3.7.egg-info/PKG-INFO",
@@ -715,16 +714,16 @@
     "Scripts/pip-script.py",
     "Scripts/pip.exe"
   ],
-  "fn": "pip-20.0.2-py37_1.tar.bz2",
+  "fn": "pip-20.0.2-py37_3.tar.bz2",
   "license": "MIT",
   "license_family": "MIT",
   "link": {
-    "source": "C:\\Users\\KIIT\\AppData\\Local\\conda\\conda\\pkgs\\pip-20.0.2-py37_1",
+    "source": "C:\\Users\\KIIT\\.conda\\pkgs\\pip-20.0.2-py37_3",
     "type": 1
   },
-  "md5": "fa6ab4a575079fdaa53ab5260fae2046",
+  "md5": "1011529d039d48895ddbb639db000449",
   "name": "pip",
-  "package_tarball_full_path": "C:\\Users\\KIIT\\AppData\\Local\\conda\\conda\\pkgs\\pip-20.0.2-py37_1.tar.bz2",
+  "package_tarball_full_path": "C:\\Users\\KIIT\\.conda\\pkgs\\pip-20.0.2-py37_3.tar.bz2",
   "paths_data": {
     "paths": [
       {
@@ -1864,8 +1863,8 @@
       {
         "_path": "Lib/site-packages/pip/_internal/req/__pycache__/req_install.cpython-37.pyc",
         "path_type": "hardlink",
-        "sha256": "c841d4f5da12adf76b2ef6dc406aaf0fc04ac377bfba52694a800f1280c00ecb",
-        "sha256_in_prefix": "c841d4f5da12adf76b2ef6dc406aaf0fc04ac377bfba52694a800f1280c00ecb",
+        "sha256": "8fc689cafaf7cd34c19f0b3705d89be33b6a97b46f61c09cfcdf9297c2cf4c38",
+        "sha256_in_prefix": "8fc689cafaf7cd34c19f0b3705d89be33b6a97b46f61c09cfcdf9297c2cf4c38",
         "size_in_bytes": 21088
       },
       {
@@ -3467,9 +3466,9 @@
       {
         "_path": "Lib/site-packages/pip/_vendor/distlib/__pycache__/wheel.cpython-37.pyc",
         "path_type": "hardlink",
-        "sha256": "13405f98b2d65b43adf39912d905aeafb0a1b8bb47a449cb36e2b59603a6a41e",
-        "sha256_in_prefix": "13405f98b2d65b43adf39912d905aeafb0a1b8bb47a449cb36e2b59603a6a41e",
-        "size_in_bytes": 25571
+        "sha256": "822f118b0fe3bab732c921663b1fcdc17bf7ed1a5f5f928f7934f513749080f0",
+        "sha256_in_prefix": "822f118b0fe3bab732c921663b1fcdc17bf7ed1a5f5f928f7934f513749080f0",
+        "size_in_bytes": 25709
       },
       {
         "_path": "Lib/site-packages/pip/_vendor/distlib/_backport/__init__.py",
@@ -3656,9 +3655,9 @@
       {
         "_path": "Lib/site-packages/pip/_vendor/distlib/wheel.py",
         "path_type": "hardlink",
-        "sha256": "6d1b51e5b351feefc3c24c24b4dd5b819bb02d53894f5a7fbcd2143f237c9097",
-        "sha256_in_prefix": "6d1b51e5b351feefc3c24c24b4dd5b819bb02d53894f5a7fbcd2143f237c9097",
-        "size_in_bytes": 40452
+        "sha256": "37c4f56fff1945066fc9c08d23901abf2f5bfb3738d630797fd2385ae2ad0422",
+        "sha256_in_prefix": "37c4f56fff1945066fc9c08d23901abf2f5bfb3738d630797fd2385ae2ad0422",
+        "size_in_bytes": 40853
       },
       {
         "_path": "Lib/site-packages/pip/_vendor/distro.py",
@@ -4391,8 +4390,8 @@
       {
         "_path": "Lib/site-packages/pip/_vendor/packaging/__pycache__/tags.cpython-37.pyc",
         "path_type": "hardlink",
-        "sha256": "6f16858ec807a833fdcca33615af2c0c2469f3864fd853d4b2ab4246062962a3",
-        "sha256_in_prefix": "6f16858ec807a833fdcca33615af2c0c2469f3864fd853d4b2ab4246062962a3",
+        "sha256": "d2404aa8ff5ec87390ec07611e7bda61602abac5bff92f8af92b6fa95a3faefa",
+        "sha256_in_prefix": "d2404aa8ff5ec87390ec07611e7bda61602abac5bff92f8af92b6fa95a3faefa",
         "size_in_bytes": 16370
       },
       {
@@ -5644,12 +5643,12 @@
     ],
     "paths_version": 1
   },
-  "platform": "win32",
-  "requested_spec": "defaults/win-64::pip==20.0.2=py37_1",
-  "size": 2014106,
+  "requested_spec": "pip",
+  "sha256": "b68df45b35e497c0dd9e9a71df30072f7ed7a71f4c262479eda8f6900e500f4b",
+  "size": 1980565,
   "subdir": "win-64",
-  "timestamp": 1580397313851,
+  "timestamp": 1588890408545,
   "track_features": "",
-  "url": "https://repo.anaconda.com/pkgs/main/win-64/pip-20.0.2-py37_1.tar.bz2",
+  "url": "https://repo.anaconda.com/pkgs/main/win-64/pip-20.0.2-py37_3.tar.bz2",
   "version": "20.0.2"
 }
