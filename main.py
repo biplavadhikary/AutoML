@@ -56,6 +56,7 @@ def handleUpload():
     session['dataset'] = attr
     session['datasetTrueName'] = trueName #name without hash
     session['datasetName'] = uniqueName
+    popSessionKeys()
 
     # save to db for later use
     new_dataset = FileContents(id=hashCode,name=trueName,attrib_list=str(attr))
@@ -214,6 +215,8 @@ def checkToken():
             session['dataset'] = attr
             session['datasetTrueName']  = exists
             session['datasetName'] = uniqueName
+            popSessionKeys()
+
             return redirect(url_for('select',showDatasetName='1'))
 
 @app.route('/about')
@@ -228,6 +231,12 @@ def pageNotFound(e):
         'info': 'Please check if the URL is correct'
     }
     return render_template('errorDisplay.html', error=error)
+
+def popSessionKeys():
+    if 'modelExists' in session.keys():
+        session.pop('modelExists')
+    if 'mvizPlotsExists' in session.keys():
+        session.pop('mvizPlotsExists')
 
 if __name__ == "__main__":
     app.run(host= '0.0.0.0', debug=True)
