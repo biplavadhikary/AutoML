@@ -1,1 +1,1 @@
-web: gunicorn --bind 0.0.0.0:$PORT main:app --timeout 180 
+web: gunicorn --bind 0.0.0.0:$PORT main:app --timeout 360 
