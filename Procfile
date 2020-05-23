@@ -1,1 +1,1 @@
-web: gunicorn AutoML:app
+web: gunicorn main :app
