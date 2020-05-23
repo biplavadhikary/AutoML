@@ -1,1 +1,1 @@
-web: gunicorn AutoMl.wsgi --log-file -
+web: gunicorn AutoML:app
