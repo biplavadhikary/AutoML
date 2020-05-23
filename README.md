@@ -14,11 +14,7 @@
  * Dashboard for viewing csv sheets in the browser
  * Loading Page ( During Script Processing )
  * Classification
-<<<<<<< HEAD
  * Prediction
-=======
- * Predictions
->>>>>>> 583b570469a3140bc3a284781e4c587a99688cb2
  * Error Handling ( 70% )
 
  To be Added:
