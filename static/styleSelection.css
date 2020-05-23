@@ -812,3 +812,11 @@ input.input100 {
 .closebtn:hover {
 	color: black;
 }
+
+.text-warning {
+    color: #ffc107!important;
+}
+
+.text-success {
+    color: #28a745!important;
+}
