@@ -9,4 +9,4 @@ Nothing to add Plot not being added
 Could not draw Pivot Charts against Dependent Variable
 Nothing to add Plot not being added
 All plots done
-Time to run AutoViz (in seconds) = 1.029
+Time to run AutoViz (in seconds) = 2.302

@@ -1,8 +1,8 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/styleSelection.css') }}">
 	<link rel="icon" href="{{ url_for('static', filename='/favicon.ico') }}" type="image/gif" sizes="96x96">
-	<script src="https://kit.fontawesome.com/b1871989d8.js" crossorigin="anonymous"></script>
 	<script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+	<script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" data-auto-replace-svg="nest" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -12,7 +12,7 @@
 	</div>
 	<form id="dataProp" action="/generate-proc" method="POST" enctype="multipart/form-data">
 		<div class="continput">
-			<div class="tab">
+			<div class="tab" style="margin-top: 30px;">
 				<h1>Select Type</h1>
 				<h4>Choose one for your Dataset</h4>
 				<ul>

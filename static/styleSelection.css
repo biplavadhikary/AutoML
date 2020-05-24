@@ -7,9 +7,7 @@
 
 body {
 	margin: 0;
-	background: #00c3ff;
-	background: -webkit-linear-gradient(to right, #ffff1c, #00c3ff);
-	background: linear-gradient(to right, #ffff1c, #00c3ff);
+	background: #c4e3ed;
 	color: darkslategray;
 	font-family: 'Roboto';
 	font-weight: 500;
@@ -378,18 +376,20 @@ input[type="radio"]:checked~.bullet .line.seven {
 	font-family: 'Roboto';
 	background-color: #f1f1f1;
 	color: black;
+	transition: background-color 0.5s ease;
 }
 
 .next {
 	display: inline-block;
 	font-family: 'Roboto';
-	background-color: #4CAF50;
+	background-color: cadetblue;
 	color: white;
+	transition: background-color 0.5s ease;
 }
 
 .next:hover {
-	background-color: darkgreen;
-	color: white;
+	background-color: white;
+	color: cadetblue;
 }
 
 .previous:hover {
@@ -420,7 +420,7 @@ input[type="radio"]:checked~.bullet .line.seven {
 
 .step-grp {
 	text-align: center;
-	margin-top: 40px;
+	margin-bottom: 20px;
 }
 
 /* Make circles that indicate the steps of the form: */
@@ -429,7 +429,7 @@ input[type="radio"]:checked~.bullet .line.seven {
 	height: 15px;
 	width: 15px;
 	margin: 0 2px;
-	background-color: yellow;
+	background-color: snow;
 	border: none;
 	border-radius: 50%;
 	display: inline-block;
@@ -445,7 +445,7 @@ input[type="radio"]:checked~.bullet .line.seven {
 /* Mark the steps that are finished and valid: */
 
 .step.finish {
-	background-color: #4CAF50;
+	background-color: snow;
 }
 
 .slideparent {
@@ -479,14 +479,10 @@ input.invalid {
 
 .custom-select select {
 	display: none;
-	/*hide original SELECT element: */
 }
 
 .select-selected {
-	background: #A1FFCE;
-	background: -webkit-linear-gradient(to right, #FAFFD1, #A1FFCE);
-	background: linear-gradient(to right, #FAFFD1, #A1FFCE);
-	border: 5px solid black;
+	background: floralwhite;
 }
 
 /* Style the arrow inside the select element: */
@@ -499,7 +495,7 @@ input.invalid {
 	width: 0;
 	height: 0;
 	border: 6px solid transparent;
-	border-color: #fff transparent transparent transparent;
+	border-color: darkslategray transparent transparent transparent;
 }
 
 /* Point the arrow upwards when the select box is open (active): */
@@ -512,10 +508,9 @@ input.invalid {
 /* style the items (options), including the selected item: */
 
 .select-items div, .select-selected {
-	color: inherit;
 	padding: 8px 16px;
-	border: 1px solid transparent;
-	border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+	border: 1px solid darkcyan;
+	border-color: transparent transparent rgba(0, 139, 139, 0.2) rgba(0, 139, 139, 0.2);
 	overflow-x: hidden;
 	cursor: pointer;
 }
@@ -524,9 +519,8 @@ input.invalid {
 
 .select-items {
 	position: absolute;
-	background: #a8ff78;
-	background: -webkit-linear-gradient(to right, #a8ff78, #78ffd6);
-	background: linear-gradient(to right, #a8ff78, #78ffd6);
+	color: currentColor;
+	background: #e4f2f7;
 	top: 100%;
 	left: 0;
 	right: 0;
@@ -662,7 +656,7 @@ input.invalid {
 	 ====================================================== */
 
 .footerDrawer {
-	background-color: rgba(0, 128, 0, 0.3);
+	/*background-color: cadetblue;*/
 	width: auto;
 	position: fixed;
 	bottom: 0;
@@ -684,12 +678,12 @@ input.invalid {
 .footerDrawer .open {
 	padding: 10px 20px;
 	border-radius: 10px 10px 0 0;
-	background-color: rgba(0, 128, 0, 0.3);
+	background-color: darkcyan;
 }
 
 .footerDrawer .content {
 	height: auto;
-	background-color: rgba(0, 100, 0, 0.5);
+	background-color: #006666;
 	display: none;
 }
 
@@ -791,7 +785,7 @@ input.input100 {
 	margin-top: 8px;
 	padding: 16px;
 	font-size: 12px;
-	background-color: #4CAF50;
+	background-color: darkslategray;
 	color: white;
 }
 
@@ -832,20 +826,17 @@ input.input100 {
 	display: block;
 	text-align: center;
 	padding: 16px;
-	transition: all 0.3s ease;
+	transition: background-color 0.3s ease;
 	color: white;
+	background-color: cadetblue;
 	font-size: 20px;
 }
 
 .icon-bar a:hover {
-	background-color: #000;
+	color: cadetblue;
+	background-color: white;
 }
 
 #datasetAlert {
 	margin: 8px 8px 0 8px;
-}
-
-.home {
-	background: #4CAF50;
-	color: white;
 }
