@@ -140,7 +140,17 @@ def generate():
         
         if session['load_model'] != 'on':
             from regressionScript import generateRegModel
-            acc = generateRegModel(folderName, target, int(session['timer'])/60)
+            acc = None
+            try:
+                acc = generateRegModel(folderName, target, int(session['timer'])/60)
+            except RuntimeError:
+                error = {
+                    'code': 'Max Time',
+                    'title': 'Cannot build pipeline in the specified Max time',
+                    'info': 'Please increase the Timer to a greater number'
+                }
+                return render_template('errorDisplay.html', error=error)
+
             session['modelRegExists'] = True
             session['accuracy'] = acc
 
@@ -165,7 +175,17 @@ def generate():
     else:
         if session['load_model'] != 'on':
             from classificationScript import generateClfModel
-            acc = generateClfModel(folderName, target, int(session['timer'])/60)
+            acc = None
+            try:
+                acc = generateClfModel(folderName, target, int(session['timer'])/60)
+            except RuntimeError:
+                error = {
+                    'code': 'Max Time',
+                    'title': 'Cannot build pipeline in the specified Max time',
+                    'info': 'Please increase the Timer to a greater number'
+                }
+                return render_template('errorDisplay.html', error=error)
+
             session['modelClfExists'] = True
             session['accuracy'] = acc
 
