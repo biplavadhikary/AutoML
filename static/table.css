@@ -1,9 +1,5 @@
-@font-face {
-    font-family: 'Audiowide';
-    font-style: normal;
-    font-weight: 400;
-    src: local("Audiowide"), local("Audiowide-Regular"), url(http://themes.googleusercontent.com/static/fonts/audiowide/v2/8XtYtNKEyyZh481XVWfVOj8E0i7KZn-EPnyo3HZu7kw.woff) format("woff");
-}
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
 .black-grad {
     background: #0F2027;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */

@@ -65,7 +65,7 @@
 				<h1>Specify Your Data</h1>
 				<h4>Choose Target (Y) column</h4>
 				<div class="custom-select" style="width:200px;">
-					<select id="target_y" name="target_y">
+					<select id="target_y" name="target_y" required>
 					  <option value="#">Attributes</option>
 					  {% for i in attrib %}
 					  	<option value="{{ i }}">{{ i }}</option>
@@ -73,7 +73,7 @@
 					</select>
 				</div>
 				<div class="custom-select" style="width:200px;">
-					<select id="timer" name="timer">
+					<select id="timer" name="timer" required>
 						<option value="#">Timer</option>
 						<option value="5">10 secs &#10004;</option>
 						<option value="15">15 secs &#10004;</option>
@@ -121,10 +121,10 @@
 		</div>
 	</div>
 	
+	<div class="icon-bar">
+		<a href="/" class="home"><i class="fas fa-home"></i></a>
+	</div>
 </body>
-<div class="icon-bar">
-	<a href="/" class="home"><i class="fas fa-home"></i></a>
-</div>
 
 <script src="{{ url_for('static', filename='/styleJs.js') }}"></script>
 {% if showDatasetName %}

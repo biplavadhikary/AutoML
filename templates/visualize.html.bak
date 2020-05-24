@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +7,6 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylePlots.css') }}">
     <title>Plots</title>
 </head>
-
 <body>
     <hgroup>
         <h1>Plots</h1>
@@ -20,28 +18,18 @@
             <a class="btn btn-light" href="/">Upload Window</a>
         </div>
     </div>
-    <div class="container">
+    <div>
         {% for eachtype in plottypes -%}
-        {% for plotloc in eachtype['loc'] -%}
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card shadow m-3">
-                    <div class="card-header">
-                        <h3 class="font-weight-light text-capitalize">{{ plotloc.split('-')[0] }}</h3>
-                    </div>
-                    <div class="card-body">
-                        <img class="mt-3 mb-3 plot-img" 
-                        src="{{ url_for('getFile', filename = folderName+'/'+plotloc) }}">
-                    </div>
+            {% for plotloc in eachtype['loc'] -%}
+                <div class="box">
+                    <img class="plot-img spinner" 
+                    src="{{ url_for('getFile', filename = folderName+'/'+plotloc) }}" 
+                    onload="this.classList.remove('spinner')">
                 </div>
-            </div>
-        </div>
-        {%- endfor %}
+            {%- endfor %}
         {%- endfor %}
     </div>
-
 </body>
 
 <script src="{{ url_for('static', filename='plots.js') }}"></script>
-
 </html>

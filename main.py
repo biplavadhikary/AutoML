@@ -2,7 +2,6 @@ import os
 from flask import Flask , render_template, request, url_for, redirect, session, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-from visualizeScript import buildSvg
 
 app = Flask(__name__)
 #app.config['SECRET_KEY'] = os.urandom(24)
@@ -115,9 +114,10 @@ def generate():
         if (session['load_model'] != 'on'):
             import visualizeScript as vs
             print('Plotting Started ..... ')
-            plottypes = vs.buildSvg(folderName, target)
+            plottypes = vs.buildPng(folderName, target)
+            default = lambda o: f"<<non-serializable: {type(o).__qualname__}>>"
             with open(f'./datasets/{folderName}/plotTypes.json', 'w') as outfile:
-                json.dump(plottypes, outfile, indent=4)
+                json.dump(plottypes, outfile, indent=4, default=default)
             print('Plotting Finished ')
             session['vizPlotsExists'] = True
 
@@ -205,11 +205,6 @@ def generate():
             log = logFile.read().replace('\n', '<br>').replace('\\', '&#92;')
 
         return render_template('modelDisplay.html',folderName=folderName, code=code, log=log, acc=session['accuracy']*100)
-
-# test route only
-@app.route('/modelDisp')
-def modelDisp():
-    return render_template('modelDisplay.html')
 
 @app.route('/handleTest', methods=['POST'])
 def handleTest():

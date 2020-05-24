@@ -1,4 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500,700);
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
 ::selection {
 	background: none;
 }
@@ -562,13 +564,6 @@ input.invalid {
 }
 
 /* TOGGLE BUTTON */
-
-@font-face {
-	font-family: 'Audiowide';
-	font-style: normal;
-	font-weight: 400;
-	src: local("Audiowide"), local("Audiowide-Regular"), url(http://themes.googleusercontent.com/static/fonts/audiowide/v2/8XtYtNKEyyZh481XVWfVOj8E0i7KZn-EPnyo3HZu7kw.woff) format("woff");
-}
 
 /* =====================================================
 	 Some defaults across all toggle demos

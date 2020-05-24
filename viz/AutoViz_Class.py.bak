@@ -496,7 +496,7 @@ def analyze_problem_type(train, targ,verbose=0) :
 def draw_pivot_tables(dft,cats,nums,problem_type,verbose,chart_format,depVar='', classes=None):
     cats = list(set(cats))
     dft = dft[:]
-    cols = 1
+    cols = 2
     cmap = plt.get_cmap('jet')
     #### For some reason, the cmap colors are not working #########################
     colors = cmap(np.linspace(0, 1, len(cats)))
@@ -563,7 +563,7 @@ def draw_pivot_tables(dft,cats,nums,problem_type,verbose,chart_format,depVar='',
             else:
                 ls_cats.append(each_cat)
         if len(ls_cats) <= 2:
-            cols = 1
+            cols = 2
             noplots = len(nums)
             rows = int((noplots/cols)+0.99)
             counter = 1
@@ -683,7 +683,7 @@ def draw_scatters(dfin,nums,verbose,chart_format,problem_type,dep=None, classes=
     if verbose == 1:
         x_est = np.mean
     N = len(nums)
-    cols = 1
+    cols = 2
     width_size = 15
     height_size = 4
     if dep == None or dep == '':
@@ -773,7 +773,7 @@ def draw_pair_scatters(dfin,nums,problem_type, verbose,chart_format, dep=None, c
     if len(nums) <= 1:
         return
     classes = copy.deepcopy(classes)
-    cols = 1
+    cols = 2
     colortext = 'brymcgkbyrcmgkbyrcmgkbyrcmgkbyr'
     colors = cycle(colortext)
     imgdata_list = list()
@@ -898,10 +898,10 @@ def draw_barplots(dft,cats,conti,problem_type,verbose,chart_format,dep='', class
         else:
             if nocats >= 25:
                 chunksize = 15
-                cols = 1
+                cols = 2
             else:
                 chunksize = cat_limit
-                cols = 1
+                cols = 2
         if len(cats) == 0:
             noplots = len(conti)*cols
         else:
@@ -1124,7 +1124,7 @@ def draw_distplot(dft, conti,verbose,chart_format,problem_type,dep=None, classes
     dft = dft[:]
     classes = copy.deepcopy(classes)
     colors = cycle('brycgkbyrcmgkbyrcmgkbyrcmgkbyr')
-    cols = 1
+    cols = 2
     imgdata_list = list()
     width_size = 15  #### this is to control the width of chart as well as number of categories to display
     height_size = 5
@@ -1392,7 +1392,7 @@ def draw_violinplot(df, dep, nums,verbose,chart_format, modeltype='Regression'):
             height_size = 7
             count = 0
             data = pd.DataFrame(index=df.index)
-            cols = 1
+            cols = 2
             noplots = len(nums)
             rows = int((noplots/cols)+0.99 )
             fig = plt.figure(figsize=(width_size,rows*height_size))
@@ -1459,7 +1459,7 @@ def draw_date_vars(df,dep,datevars, num_vars,verbose, chart_format, modeltype='R
         width_size = 15
         height_size = 4
         image_count = 0
-        cols = 1
+        cols = 2
         combos = combinations(num_vars, 2)
         combs = copy.deepcopy(combos)
         noplots = int((N**2-N)/2)
@@ -1490,7 +1490,7 @@ def draw_date_vars(df,dep,datevars, num_vars,verbose, chart_format, modeltype='R
         target_vars = df[dep].unique()
         if type(classes[0])==int or type(classes[0])==float:
             classes = [str(x) for x in classes]
-        cols = 1
+        cols = 2
         noplots = int((N**2-N)/2)
         rows = int((noplots/cols)+0.99)
         fig = plt.figure(figsize=(width_size,rows*height_size))
@@ -2262,7 +2262,6 @@ def return_factorized_dict(ls):
 ################      Find top features using XGB     ###################
 from sklearn.model_selection import KFold
 from sklearn.model_selection import GridSearchCV
-from sklearn.model_selection import train_test_split
 from sklearn.multioutput import MultiOutputClassifier
 import copy
 from sklearn.multiclass import OneVsRestClassifier

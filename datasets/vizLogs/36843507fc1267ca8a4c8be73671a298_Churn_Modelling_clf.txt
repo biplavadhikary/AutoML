@@ -1,0 +1,23 @@
+Shape of your Data Set: (10000, 14)
+Classifying variables in data set...
+    13 Predictors classified...
+        This does not include the Target column(s)
+    3 variables removed since they were ID or low-information variables
+    List of variables removed: ['RowNumber', 'CustomerId', 'Surname']
+Total Number of Scatter Plots = 3
+Plotting Started ..... 
+
+
+
+
+
+
+Plotting Finished 
+Plotting Started ..... 
+
+
+
+
+
+
+Plotting Finished 
