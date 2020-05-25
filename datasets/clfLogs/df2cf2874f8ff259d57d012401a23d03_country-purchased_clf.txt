@@ -1,0 +1,19 @@
+Running for 0.08333333333333333 mins
+31 operators have been imported by TPOT.
+Imputing missing values in feature set
+Imported AutoViz_Class version: 0.0.68. Call using: 
+    from autoviz.AutoViz_Class import AutoViz_Class
+    AV = AutoViz_Class()
+    AutoViz(filename, sep=',', depVar='', dfte=None, header=0, verbose=0,
+                            lowess=False,chart_format='svg',max_rows_analyzed=150000,max_cols_analyzed=30)
+            
+To remove previous versions, perform 'pip uninstall autoviz'
+Plotting Started ..... 
+
+
+
+
+
+
+
+Plotting Finished 

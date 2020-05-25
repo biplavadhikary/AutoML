@@ -19,8 +19,11 @@ class FileContents(db.Model):
     name = db.Column(db.String(300))
     attrib_list = db.Column(db.String(500))
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
-    completed = db.Column(db.Integer, default=0)
-    #data = db.Column(db.LargeBinary)
+    modelClfExists = db.Column(db.Boolean, default=False)
+    vizPlotsExists = db.Column(db.Boolean, default=False)
+    modelRegExists = db.Column(db.Boolean, default=False)
+    accuracyClf = db.Column(db.Float, default=0)
+    accuracyReg = db.Column(db.Float, default=0)
 
     def __repr__ (self):
         return f'<Added {self.id}>'
@@ -55,7 +58,11 @@ def handleUpload():
     session['dataset'] = attr
     session['datasetTrueName'] = trueName #name without hash
     session['datasetName'] = uniqueName
-    popSessionKeys()
+    session['modelClfExists'] = False
+    session['vizPlotsExists'] = False
+    session['modelRegExists'] = False
+    session['accuracyClf'] = 0.0
+    session['accuracyReg'] = 0.0
 
     # save to db for later use
     new_dataset = FileContents(id=hashCode,name=trueName,attrib_list=str(attr))
@@ -81,13 +88,6 @@ def select(showDatasetName):
     else:
         attrib = ['Upload your dataset first', 'Go Back To Index']
 
-    if ('modelClfExists' not in session.keys()):
-        session['modelClfExists'] = False
-    if('vizPlotsExists' not in session.keys()):
-        session['vizPlotsExists'] = False
-    if('modelRegExists' not in session.keys()):
-        session['modelRegExists'] = False
-
     if showDatasetName == '0':
         return render_template('selection.html',attrib=attrib,showDatasetName=False)
     elif showDatasetName == '1':
@@ -112,14 +112,20 @@ def generate():
     if problem == 'visualization':
         import json
         if (session['load_model'] != 'on'):
-            import visualizeScript as vs
+            import scriptViz as vs
             print('Plotting Started ..... ')
             plottypes = vs.buildPng(folderName, target)
             default = lambda o: f"<<non-serializable: {type(o).__qualname__}>>"
             with open(f'./datasets/{folderName}/plotTypes.json', 'w') as outfile:
                 json.dump(plottypes, outfile, indent=4, default=default)
             print('Plotting Finished ')
-            session['vizPlotsExists'] = True
+            try:
+                info = db.session.query(FileContents).filter_by(id=session['datasetName'].split('_')[0]).scalar()
+                info.vizPlotsExists = 1
+                db.session.commit()
+                session['vizPlotsExists'] = True
+            except:
+                return('Database Error')
 
         else:
             if (session['vizPlotsExists'] == False):
@@ -137,10 +143,11 @@ def generate():
 
     # regression processing
     elif problem == 'prediction':
-        
+        acc = session['accuracyReg']
+
+        # create a model right now
         if session['load_model'] != 'on':
-            from regressionScript import generateRegModel
-            acc = None
+            from scriptReg import generateRegModel
             try:
                 acc = generateRegModel(folderName, target, int(session['timer'])/60)
             except RuntimeError:
@@ -151,31 +158,40 @@ def generate():
                 }
                 return render_template('errorDisplay.html', error=error)
 
-            session['modelRegExists'] = True
-            session['accuracy'] = acc
+            try:
+                info = db.session.query(FileContents).filter_by(id=session['datasetName'].split('_')[0]).scalar()
+                info.modelRegExists = 1
+                info.accuracyReg = acc
+                db.session.commit()
+                session['modelRegExists'] = True
+                session['accuracyReg'] = acc
+            except:
+                return('Database Error')
 
+        # if model exists then display it [common part for both load and create option]
+        if (session['modelRegExists'] == False):
+            error = {
+                'code': 'Error',
+                'title': 'Model does not Exists',
+                'info': 'Please create the Model first from the Selection Window'
+            }
+            return render_template('errorDisplay.html', error=error)
         else:
-            if (session['modelRegExists'] == False):
-                error = {
-                    'code': 'Error',
-                    'title': 'Model does not Exists',
-                    'info': 'Please create the Model first from the Selection Window'
-                }
-                return render_template('errorDisplay.html', error=error)
+            code, log = '',''
+            with open(f'./datasets/{folderName}/pipelineReg.py', 'r') as codeFile, \
+                    open(f'datasets/regLogs/{folderName}.txt', 'r') as logFile:
+                code = codeFile.read().replace('\\', '&#92;')
+                log = logFile.read().replace('\n', '<br>').replace('\\', '&#92;')
 
-        code, log = '',''
-        with open(f'./datasets/{folderName}/pipelineReg.py', 'r') as codeFile, \
-                open(f'datasets/regLogs/{folderName}.txt', 'r') as logFile:
-            code = codeFile.read().replace('\\', '&#92;')
-            log = logFile.read().replace('\n', '<br>').replace('\\', '&#92;')
-
-        return render_template('modelDisplay.html',folderName=folderName, code=code, log=log, acc=session['accuracy']*100)
+            return render_template('modelDisplay.html',folderName=folderName, code=code, log=log, acc=acc)
 
     # classification processing
     else:
+        acc = session['accuracyClf']
+
+        # create a model now
         if session['load_model'] != 'on':
-            from classificationScript import generateClfModel
-            acc = None
+            from scriptClf import generateClfModel
             try:
                 acc = generateClfModel(folderName, target, int(session['timer'])/60)
             except RuntimeError:
@@ -186,25 +202,33 @@ def generate():
                 }
                 return render_template('errorDisplay.html', error=error)
 
-            session['modelClfExists'] = True
-            session['accuracy'] = acc
+            try:
+                info = db.session.query(FileContents).filter_by(id=session['datasetName'].split('_')[0]).scalar()
+                info.modelClfExists = 1
+                info.accuracyClf = acc
+                db.session.commit()
+                session['modelClfExists'] = True
+                session['accuracyClf'] = acc
+            except:
+                return('Database Error')
+
+        # if model exists then display it [common part for both load and create option]
+        if (session['modelClfExists'] == False):
+            error = {
+                'code': 'Error',
+                'title': 'Model does not Exists',
+                'info': 'Please create the Model first from the Selection Window'
+            }
+            return render_template('errorDisplay.html', error=error)
 
         else:
-            if (session['modelClfExists'] == False):
-                error = {
-                    'code': 'Error',
-                    'title': 'Model does not Exists',
-                    'info': 'Please create the Model first from the Selection Window'
-                }
-                return render_template('errorDisplay.html', error=error)
+            code, log = '',''
+            with open(f'./datasets/{folderName}/pipelineClf.py', 'r') as codeFile, \
+                    open(f'datasets/clfLogs/{folderName}.txt', 'r') as logFile:
+                code = codeFile.read().replace('\\', '&#92;')
+                log = logFile.read().replace('\n', '<br>').replace('\\', '&#92;')
 
-        code, log = '',''
-        with open(f'./datasets/{folderName}/pipelineClf.py', 'r') as codeFile, \
-                open(f'datasets/clfLogs/{folderName}.txt', 'r') as logFile:
-            code = codeFile.read().replace('\\', '&#92;')
-            log = logFile.read().replace('\n', '<br>').replace('\\', '&#92;')
-
-        return render_template('modelDisplay.html',folderName=folderName, code=code, log=log, acc=session['accuracy']*100)
+            return render_template('modelDisplay.html',folderName=folderName, code=code, log=log, acc=acc)
 
 @app.route('/handleTest', methods=['POST'])
 def handleTest():
@@ -225,11 +249,11 @@ def renderTable():
     status = None
 
     if problem ==  'prediction':
-        from regressionScript import predict_csv_reg
+        from scriptReg import predict_csv_reg
         status = predict_csv_reg(folderName, target)
 
     else:
-        from classificationScript import predict_csv_clf
+        from scriptClf import predict_csv_clf
         status = predict_csv_clf(folderName, target)
 
     if (status == True):
@@ -247,6 +271,7 @@ def checkToken():
     if request.method == 'POST':
         hashCode = request.form.get('tokenCode').strip()
         exists = db.session.query(FileContents.name).filter_by(id=hashCode).scalar()
+
         if exists is None:
             return render_template('index.html', noDataset=False, wrongToken=True)
         else:
@@ -256,7 +281,9 @@ def checkToken():
             session['dataset'] = attr
             session['datasetTrueName']  = exists
             session['datasetName'] = uniqueName
-            popSessionKeys()
+
+            # inform the session of existence of a model
+            setModelExistenceInfo(dataid = session['datasetName'].split('_')[0])
 
             return redirect(url_for('select',showDatasetName='1'))
 
@@ -273,13 +300,14 @@ def pageNotFound(e):
     }
     return render_template('errorDisplay.html', error=error)
 
-def popSessionKeys():
-    if 'modelClfExists' in session.keys():
-        session.pop('modelClfExists')
-    if 'mvizPlotsExists' in session.keys():
-        session.pop('mvizPlotsExists')
-    if 'modelRegExists' in session.keys():
-        session.pop('modelRegExists')
+def setModelExistenceInfo(dataid):
+    x = db.session.query(FileContents).filter_by(id=dataid).scalar()
+
+    session['modelClfExists'] = x.modelClfExists
+    session['vizPlotsExists'] = x.vizPlotsExists
+    session['modelRegExists'] = x.modelRegExists
+    session['accuracyClf'] = x.accuracyClf
+    session['accuracyReg'] = x.accuracyReg
 
 if __name__ == "__main__":
     app.run(host= '0.0.0.0', debug=True)

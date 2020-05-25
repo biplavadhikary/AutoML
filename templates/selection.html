@@ -6,9 +6,13 @@
 </head>
 
 <body>
-	<div id="datasetAlert" class="alert" style="text-align: center; display: none;">
+	<div id="datasetAlert" class="alert" style="text-align: center;">
 		<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-		<strong>Dataset: &nbsp;</strong>You are working on {{ session["datasetTrueName"] }}!
+		{% if showDatasetName %}
+			<strong>Dataset: &nbsp;</strong>You are working on {{ session["datasetTrueName"] }} !
+		{% else %}
+			<strong>Note: &nbsp;</strong>Make sure your dataset is prepocessed & free of useless features !
+		{% endif %}
 	</div>
 	<form id="dataProp" action="/generate-proc" method="POST" enctype="multipart/form-data">
 		<div class="continput">
@@ -46,7 +50,7 @@
 					</li>
 					<li>
 						<input type="radio" name="problem" value="visualization">
-						<label>Visualize the Data</label>
+						<label>Visualize</label>
 						<div class="bullet">
 							<div class="line zero"></div>
 							<div class="line one"></div>
@@ -127,11 +131,11 @@
 </body>
 
 <script src="{{ url_for('static', filename='/styleJs.js') }}"></script>
-{% if showDatasetName %}
+
+<!--
 <script>
 	window.onload = function(){
 		//alert('Your Dataset is: {{ session["datasetTrueName"] }}!');
 		document.getElementById("datasetAlert").style.display = "block";
 }
-</script>
-{% endif %}
+</script>-->

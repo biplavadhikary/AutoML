@@ -554,7 +554,7 @@ input.invalid {
 
 .select-items::-webkit-scrollbar-thumb {
 	border-radius: 10px;
-	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, rgb(156, 238, 137)), color-stop(0.72, rgb(88, 182, 75)), color-stop(0.86, rgb(38, 129, 27)));
+	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, rgb(137, 238, 224)), color-stop(0.72, rgb(75, 175, 182)), color-stop(0.86, rgb(27, 92, 129)));
 }
 
 /* TOGGLE BUTTON */

@@ -1,0 +1,12 @@
+Shape of your Data Set: (506, 14)
+Classifying variables in data set...
+    13 Predictors classified...
+        This does not include the Target column(s)
+    No variables removed since no ID or low-information variables found in data set
+Number of All Scatter Plots = 45
+Could not draw Distribution Plots
+Could not draw Pivot Charts against Dependent Variable
+No categorical or boolean vars in data set. Hence no bar charts.
+Nothing to add Plot not being added
+All Plots done
+Time to run AutoViz (in seconds) = 22.024

@@ -47,7 +47,7 @@
                         class="img-fluid d-block mx-auto mb-4 rounded-pill">
 
                     <h6 class="text-center mb-4 text-muted">
-                        Upload your Test Dataset here
+                        Upload your Actual [Test] Dataset here
                     </h6>
 
                     <form action="/handleTest" method="POST" enctype="multipart/form-data">
@@ -86,7 +86,7 @@
                         Activity Log
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Accuracy: {{ acc }} % </h5>
+                        <h5 class="card-title">Accuracy: {{ acc*100 }} % </h5>
                         <p class="card-text" id="log">{{ log|safe }}</p>
                     </div>
                 </div>
