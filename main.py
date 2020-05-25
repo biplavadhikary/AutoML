@@ -72,12 +72,11 @@ def handleUpload():
         return redirect(url_for('select',showDatasetName='0'))
 
     except Exception as e:
-        error = {
+        return render_template('errorDisplay.html', error={
             'code': 'Error',
             'title': 'Database Commit Error',
             'info': 'An error occured while committing to the database. Please contact the admin'
-        }
-        return render_template('errorDisplay.html', error=error)
+        })
 
 @app.route('/select/<showDatasetName>')
 def select(showDatasetName):
@@ -125,16 +124,20 @@ def generate():
                 db.session.commit()
                 session['vizPlotsExists'] = True
             except:
-                return('Database Error')
+                return render_template('errorDisplay.html', error = {
+                    'code': 'Database Error',
+                    'title': 'Error while updating value to database',
+                    'info': 'Please contact administrator'
+                    })
+
 
         else:
             if (session['vizPlotsExists'] == False):
-                error = {
+                return render_template('errorDisplay.html', error = {
                     'code': 'Error',
                     'title': 'Vizualization data does not Exists',
                     'info': 'Please create the Visualization Data first from the Selection Window'
-                }
-                return render_template('errorDisplay.html', error=error)
+                })
 
         plottypes = None
         with open(f'./datasets/{folderName}/plotTypes.json') as infile:
@@ -151,12 +154,11 @@ def generate():
             try:
                 acc = generateRegModel(folderName, target, int(session['timer'])/60)
             except RuntimeError:
-                error = {
+                return render_template('errorDisplay.html', error = {
                     'code': 'Max Time',
                     'title': 'Cannot build pipeline in the specified Max time',
                     'info': 'Please increase the Timer to a greater number'
-                }
-                return render_template('errorDisplay.html', error=error)
+                })
 
             try:
                 info = db.session.query(FileContents).filter_by(id=session['datasetName'].split('_')[0]).scalar()
@@ -166,16 +168,19 @@ def generate():
                 session['modelRegExists'] = True
                 session['accuracyReg'] = acc
             except:
-                return('Database Error')
+                return render_template('errorDisplay.html', error = {
+                'code': 'Database Error',
+                'title': 'Error while updating value to database',
+                'info': 'Please contact administrator'
+            })
 
         # if model exists then display it [common part for both load and create option]
         if (session['modelRegExists'] == False):
-            error = {
+            return render_template('errorDisplay.html', error = {
                 'code': 'Error',
                 'title': 'Model does not Exists',
                 'info': 'Please create the Model first from the Selection Window'
-            }
-            return render_template('errorDisplay.html', error=error)
+            })
         else:
             code, log = '',''
             with open(f'./datasets/{folderName}/pipelineReg.py', 'r') as codeFile, \
@@ -195,12 +200,11 @@ def generate():
             try:
                 acc = generateClfModel(folderName, target, int(session['timer'])/60)
             except RuntimeError:
-                error = {
+                return render_template('errorDisplay.html', error = {
                     'code': 'Max Time',
                     'title': 'Cannot build pipeline in the specified Max time',
                     'info': 'Please increase the Timer to a greater number'
-                }
-                return render_template('errorDisplay.html', error=error)
+                })
 
             try:
                 info = db.session.query(FileContents).filter_by(id=session['datasetName'].split('_')[0]).scalar()
@@ -210,16 +214,20 @@ def generate():
                 session['modelClfExists'] = True
                 session['accuracyClf'] = acc
             except:
-                return('Database Error')
+                return render_template('errorDisplay.html', error = {
+                    'code': 'Database Error',
+                    'title': 'Error while updating value to database',
+                    'info': 'Please contact administrator'
+                    })
+
 
         # if model exists then display it [common part for both load and create option]
         if (session['modelClfExists'] == False):
-            error = {
+            return render_template('errorDisplay.html', error = {
                 'code': 'Error',
                 'title': 'Model does not Exists',
                 'info': 'Please create the Model first from the Selection Window'
-            }
-            return render_template('errorDisplay.html', error=error)
+            })
 
         else:
             code, log = '',''
@@ -259,12 +267,11 @@ def renderTable():
     if (status == True):
         return render_template('table.html', testURL=testURL, folderName=folderName)
     else:
-        error = {
+        return render_template('errorDisplay.html', error = {
             'code': 'Error',
             'title': 'Required Model not Found',
             'info': 'Make sure you have created the Model previously'
-        }
-        return render_template('errorDisplay.html', error=error)
+        })
 
 @app.route('/checkToken', methods=['POST'])
 def checkToken():
@@ -293,12 +300,11 @@ def renderAbout():
 
 @app.errorhandler(404)
 def pageNotFound(e):
-    error = {
+    return render_template('errorDisplay.html', error = {
         'code': '404',
         'title': 'Page does not Exists',
         'info': 'Please check if the URL is correct'
-    }
-    return render_template('errorDisplay.html', error=error)
+    })
 
 def setModelExistenceInfo(dataid):
     x = db.session.query(FileContents).filter_by(id=dataid).scalar()
