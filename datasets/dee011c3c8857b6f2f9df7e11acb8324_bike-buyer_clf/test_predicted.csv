@@ -1,101 +1,101 @@
 ,ID,Marital Status,Gender,Yearly Income,Children,Education,Occupation,Home Owner,Cars,Commute Distance,Region,Age,Bike Buyer (Predicted)
-0,22774,0,1,60000,1,3,3,1,2,5,1,56,No
-1,17517,1,1,80000,0,0,1,1,1,7,1,33,No
-2,11941,1,1,60000,0,3,4,1,2,1,1,29,No
-3,19776,0,0,40000,0,2,4,1,2,6,1,31,No
-4,27295,1,1,70000,0,1,3,1,0,7,1,40,Yes
-5,18907,0,0,30000,0,2,4,1,2,5,2,54,No
-6,22548,0,0,70000,0,1,4,1,0,6,1,35,No
-7,16050,0,1,10000,0,3,2,1,0,7,0,49,No
-8,13879,1,1,60000,2,0,4,0,1,2,1,38,No
-9,17091,0,0,10000,0,4,2,0,2,2,0,34,No
-10,11953,1,0,40000,0,2,4,0,2,6,1,31,No
-11,29036,0,0,60000,1,4,4,1,2,5,1,53,No
-12,20941,0,1,10000,0,4,2,1,2,5,0,31,No
-13,21997,0,1,80000,4,0,3,1,2,8,2,48,No
-14,15609,1,1,20000,0,4,2,0,2,5,0,26,No
-15,21157,0,1,60000,4,0,3,1,1,6,1,47,No
-16,22694,1,0,30000,3,3,0,1,2,5,0,28,No
-17,11253,0,1,60000,0,1,1,1,2,1,1,73,No
-18,15720,0,0,70000,0,0,3,1,4,7,2,32,No
-19,16934,1,0,20000,0,1,2,1,0,3,0,44,No
-20,22151,0,1,10000,1,4,0,1,2,1,2,58,No
-21,11559,1,1,30000,1,0,0,0,1,5,0,38,No
-22,24640,1,0,50000,0,0,1,0,2,1,1,65,Yes
-23,13227,0,1,60000,0,0,1,1,3,8,1,59,No
-24,17076,0,1,60000,5,0,3,1,3,6,2,42,No
-25,21045,1,0,10000,1,2,2,1,2,8,0,53,No
-26,20574,0,1,130000,4,3,3,1,4,11,0,51,No
-27,21789,0,0,60000,1,0,1,1,0,3,1,58,No
-28,12951,1,1,40000,0,0,3,0,1,2,1,42,No
-29,17019,0,0,40000,3,2,4,1,4,2,1,45,No
-30,19540,0,0,60000,3,0,3,1,0,5,1,47,No
-31,12810,0,1,30000,0,0,0,1,1,8,0,80,No
-32,13437,0,1,90000,0,3,3,1,1,9,1,43,No
-33,20743,0,0,20000,0,2,2,0,2,1,1,53,No
-34,19383,1,1,20000,0,4,2,0,2,7,0,33,No
-35,12427,0,0,40000,0,3,0,1,1,1,1,52,No
-36,14629,0,1,60000,0,3,4,1,1,6,1,45,No
-37,11864,0,0,60000,0,3,4,1,1,2,1,45,No
-38,13811,1,0,30000,2,3,0,1,2,7,0,43,No
-39,12183,0,0,80000,4,3,3,1,3,8,1,46,No
-40,19887,0,0,60000,1,3,3,0,1,13,1,54,No
-41,20742,0,0,20000,0,2,2,0,2,7,1,53,No
-42,15686,0,1,130000,4,0,1,1,4,1,0,62,No
-43,13312,0,0,110000,3,3,3,1,4,1,1,46,No
-44,13740,0,0,40000,0,3,0,1,1,2,1,49,No
-45,15885,1,1,60000,0,0,1,1,3,1,1,60,Yes
-46,17242,0,1,110000,5,3,1,1,3,7,2,33,No
-47,11855,0,1,60000,2,0,3,1,4,6,1,43,No
-48,19627,0,0,70000,4,3,4,1,3,8,2,46,No
-49,18734,1,0,70000,0,0,3,0,1,1,2,42,No
-50,18473,0,1,60000,0,3,4,1,2,2,1,31,No
-51,22210,0,0,110000,1,0,1,1,4,4,2,47,No
-52,16506,0,0,60000,0,3,4,1,2,3,1,32,No
-53,11318,1,0,40000,0,3,3,0,2,1,1,54,No
-54,19847,1,1,70000,0,0,1,1,2,12,1,63,No
-55,22825,1,0,120000,5,3,3,1,3,1,0,54,No
-56,11602,1,1,30000,0,3,0,0,1,5,0,29,No
-57,21079,1,1,20000,3,2,2,1,0,5,0,42,No
-58,22799,0,0,120000,4,4,3,0,4,6,0,50,No
-59,20586,0,1,90000,1,2,1,1,3,5,0,56,No
-60,17092,0,1,40000,1,0,4,1,0,3,0,32,No
-61,29402,1,1,30000,2,3,0,0,2,5,0,42,No
-62,11719,0,1,40000,2,2,4,1,2,11,1,46,No
-63,28555,0,0,40000,1,0,4,1,1,1,0,33,Yes
-64,20571,1,0,170000,4,0,1,0,4,5,0,60,No
-65,21188,0,1,60000,4,0,3,1,2,5,2,42,No
-66,22019,0,0,40000,0,2,4,0,2,2,1,28,No
-67,13831,1,1,20000,0,2,2,1,1,8,0,30,No
-68,17385,0,0,60000,1,1,4,1,0,6,1,35,No
-69,27092,1,0,70000,0,1,3,0,0,5,1,35,Yes
-70,12369,1,1,60000,4,0,3,0,4,1,2,43,No
-71,15250,1,1,30000,0,2,4,0,2,5,1,26,No
-72,16599,0,1,150000,5,0,1,1,3,2,0,56,No
-73,18156,0,0,80000,2,3,3,1,2,6,0,53,No
-74,15796,0,1,80000,5,0,3,1,4,7,2,41,No
-75,20540,0,0,60000,1,3,3,1,1,2,1,55,No
-76,21088,1,1,30000,2,3,0,1,1,7,0,40,No
-77,20944,1,0,20000,0,2,2,0,1,8,0,30,No
-78,18073,0,1,60000,0,0,1,1,2,1,1,60,No
-79,21374,0,0,20000,1,4,0,1,2,6,2,57,No
-80,13754,1,0,80000,0,1,4,1,0,1,1,48,No
-81,13603,0,0,120000,5,3,1,1,3,5,0,56,No
-82,16165,0,0,70000,5,0,3,1,3,9,2,39,No
-83,16280,1,1,10000,2,4,2,1,2,2,0,43,No
-84,13486,1,0,130000,3,0,1,0,4,8,1,69,No
-85,20079,0,0,20000,0,2,2,0,2,6,1,53,No
-86,12952,1,0,60000,0,0,3,0,1,3,1,37,No
-87,15921,1,1,100000,3,3,3,1,4,3,0,48,No
-88,16950,0,1,50000,1,0,4,1,1,7,1,35,No
-89,21850,0,1,80000,1,2,3,0,3,10,0,55,No
-90,28142,1,1,50000,0,2,3,0,2,5,1,32,Yes
-91,21480,0,1,40000,1,2,3,0,2,1,1,57,No
-92,11948,0,0,30000,0,2,4,1,2,1,2,55,No
-93,14180,0,1,100000,3,0,1,1,4,2,0,60,No
-94,12596,0,1,30000,0,1,0,1,0,8,0,45,No
-95,22496,0,0,30000,1,0,4,1,2,3,0,42,No
-96,20235,1,1,60000,4,0,3,1,3,11,2,42,No
-97,16669,1,1,60000,0,3,3,1,2,1,1,32,No
-98,24213,1,1,10000,0,3,2,0,2,3,0,55,Yes
-99,16326,1,1,10000,0,4,2,0,2,6,0,33,No
+0,22774,Married,Male,60000,1,Partial College,Professional,Yes,2,5,North America,56,No
+1,17517,Single,Male,80000,0,Bachelors,Management,Yes,1,7,North America,33,No
+2,11941,Single,Male,60000,0,Partial College,Skilled Manual,Yes,2,1,North America,29,No
+3,19776,Married,Female,40000,0,High School,Skilled Manual,Yes,2,6,North America,31,No
+4,27295,Single,Male,70000,0,Graduate Degree,Professional,Yes,0,7,North America,40,Yes
+5,18907,Married,Female,30000,0,High School,Skilled Manual,Yes,2,5,Pacific,54,No
+6,22548,Married,Female,70000,0,Graduate Degree,Skilled Manual,Yes,0,6,North America,35,No
+7,16050,Married,Male,10000,0,Partial College,Manual,Yes,0,7,Europe,49,No
+8,13879,Single,Male,60000,2,Bachelors,Skilled Manual,No,1,2,North America,38,No
+9,17091,Married,Female,10000,0,Partial High School,Manual,No,2,2,Europe,34,No
+10,11953,Single,Female,40000,0,High School,Skilled Manual,No,2,6,North America,31,No
+11,29036,Married,Female,60000,1,Partial High School,Skilled Manual,Yes,2,5,North America,53,No
+12,20941,Married,Male,10000,0,Partial High School,Manual,Yes,2,5,Europe,31,No
+13,21997,Married,Male,80000,4,Bachelors,Professional,Yes,2,8,Pacific,48,No
+14,15609,Single,Male,20000,0,Partial High School,Manual,No,2,5,Europe,26,No
+15,21157,Married,Male,60000,4,Bachelors,Professional,Yes,1,6,North America,47,No
+16,22694,Single,Female,30000,3,Partial College,Clerical,Yes,2,5,Europe,28,No
+17,11253,Married,Male,60000,0,Graduate Degree,Management,Yes,2,1,North America,73,No
+18,15720,Married,Female,70000,0,Bachelors,Professional,Yes,4,7,Pacific,32,No
+19,16934,Single,Female,20000,0,Graduate Degree,Manual,Yes,0,3,Europe,44,No
+20,22151,Married,Male,10000,1,Partial High School,Clerical,Yes,2,1,Pacific,58,No
+21,11559,Single,Male,30000,1,Bachelors,Clerical,No,1,5,Europe,38,No
+22,24640,Single,Female,50000,0,Bachelors,Management,No,2,1,North America,65,Yes
+23,13227,Married,Male,60000,0,Bachelors,Management,Yes,3,8,North America,59,No
+24,17076,Married,Male,60000,5,Bachelors,Professional,Yes,3,6,Pacific,42,No
+25,21045,Single,Female,10000,1,High School,Manual,Yes,2,8,Europe,53,No
+26,20574,Married,Male,130000,4,Partial College,Professional,Yes,4,11,Europe,51,No
+27,21789,Married,Female,60000,1,Bachelors,Management,Yes,0,3,North America,58,No
+28,12951,Single,Male,40000,0,Bachelors,Professional,No,1,2,North America,42,No
+29,17019,Married,Female,40000,3,High School,Skilled Manual,Yes,4,2,North America,45,No
+30,19540,Married,Female,60000,3,Bachelors,Professional,Yes,0,5,North America,47,No
+31,12810,Married,Male,30000,0,Bachelors,Clerical,Yes,1,8,Europe,80,No
+32,13437,Married,Male,90000,0,Partial College,Professional,Yes,1,9,North America,43,No
+33,20743,Married,Female,20000,0,High School,Manual,No,2,1,North America,53,No
+34,19383,Single,Male,20000,0,Partial High School,Manual,No,2,7,Europe,33,No
+35,12427,Married,Female,40000,0,Partial College,Clerical,Yes,1,1,North America,52,No
+36,14629,Married,Male,60000,0,Partial College,Skilled Manual,Yes,1,6,North America,45,No
+37,11864,Married,Female,60000,0,Partial College,Skilled Manual,Yes,1,2,North America,45,No
+38,13811,Single,Female,30000,2,Partial College,Clerical,Yes,2,7,Europe,43,No
+39,12183,Married,Female,80000,4,Partial College,Professional,Yes,3,8,North America,46,No
+40,19887,Married,Female,60000,1,Partial College,Professional,No,1,13,North America,54,No
+41,20742,Married,Female,20000,0,High School,Manual,No,2,7,North America,53,No
+42,15686,Married,Male,130000,4,Bachelors,Management,Yes,4,1,Europe,62,No
+43,13312,Married,Female,110000,3,Partial College,Professional,Yes,4,1,North America,46,No
+44,13740,Married,Female,40000,0,Partial College,Clerical,Yes,1,2,North America,49,No
+45,15885,Single,Male,60000,0,Bachelors,Management,Yes,3,1,North America,60,No
+46,17242,Married,Male,110000,5,Partial College,Management,Yes,3,7,Pacific,33,No
+47,11855,Married,Male,60000,2,Bachelors,Professional,Yes,4,6,North America,43,No
+48,19627,Married,Female,70000,4,Partial College,Skilled Manual,Yes,3,8,Pacific,46,No
+49,18734,Single,Female,70000,0,Bachelors,Professional,No,1,1,Pacific,42,No
+50,18473,Married,Male,60000,0,Partial College,Skilled Manual,Yes,2,2,North America,31,No
+51,22210,Married,Female,110000,1,Bachelors,Management,Yes,4,4,Pacific,47,No
+52,16506,Married,Female,60000,0,Partial College,Skilled Manual,Yes,2,3,North America,32,No
+53,11318,Single,Female,40000,0,Partial College,Professional,No,2,1,North America,54,No
+54,19847,Single,Male,70000,0,Bachelors,Management,Yes,2,12,North America,63,No
+55,22825,Single,Female,120000,5,Partial College,Professional,Yes,3,1,Europe,54,No
+56,11602,Single,Male,30000,0,Partial College,Clerical,No,1,5,Europe,29,No
+57,21079,Single,Male,20000,3,High School,Manual,Yes,0,5,Europe,42,No
+58,22799,Married,Female,120000,4,Partial High School,Professional,No,4,6,Europe,50,No
+59,20586,Married,Male,90000,1,High School,Management,Yes,3,5,Europe,56,No
+60,17092,Married,Male,40000,1,Bachelors,Skilled Manual,Yes,0,3,Europe,32,No
+61,29402,Single,Male,30000,2,Partial College,Clerical,No,2,5,Europe,42,No
+62,11719,Married,Male,40000,2,High School,Skilled Manual,Yes,2,11,North America,46,No
+63,28555,Married,Female,40000,1,Bachelors,Skilled Manual,Yes,1,1,Europe,33,Yes
+64,20571,Single,Female,170000,4,Bachelors,Management,No,4,5,Europe,60,No
+65,21188,Married,Male,60000,4,Bachelors,Professional,Yes,2,5,Pacific,42,No
+66,22019,Married,Female,40000,0,High School,Skilled Manual,No,2,2,North America,28,No
+67,13831,Single,Male,20000,0,High School,Manual,Yes,1,8,Europe,30,No
+68,17385,Married,Female,60000,1,Graduate Degree,Skilled Manual,Yes,0,6,North America,35,No
+69,27092,Single,Female,70000,0,Graduate Degree,Professional,No,0,5,North America,35,Yes
+70,12369,Single,Male,60000,4,Bachelors,Professional,No,4,1,Pacific,43,No
+71,15250,Single,Male,30000,0,High School,Skilled Manual,No,2,5,North America,26,No
+72,16599,Married,Male,150000,5,Bachelors,Management,Yes,3,2,Europe,56,No
+73,18156,Married,Female,80000,2,Partial College,Professional,Yes,2,6,Europe,53,No
+74,15796,Married,Male,80000,5,Bachelors,Professional,Yes,4,7,Pacific,41,No
+75,20540,Married,Female,60000,1,Partial College,Professional,Yes,1,2,North America,55,No
+76,21088,Single,Male,30000,2,Partial College,Clerical,Yes,1,7,Europe,40,No
+77,20944,Single,Female,20000,0,High School,Manual,No,1,8,Europe,30,No
+78,18073,Married,Male,60000,0,Bachelors,Management,Yes,2,1,North America,60,No
+79,21374,Married,Female,20000,1,Partial High School,Clerical,Yes,2,6,Pacific,57,No
+80,13754,Single,Female,80000,0,Graduate Degree,Skilled Manual,Yes,0,1,North America,48,No
+81,13603,Married,Female,120000,5,Partial College,Management,Yes,3,5,Europe,56,No
+82,16165,Married,Female,70000,5,Bachelors,Professional,Yes,3,9,Pacific,39,No
+83,16280,Single,Male,10000,2,Partial High School,Manual,Yes,2,2,Europe,43,No
+84,13486,Single,Female,130000,3,Bachelors,Management,No,4,8,North America,69,No
+85,20079,Married,Female,20000,0,High School,Manual,No,2,6,North America,53,No
+86,12952,Single,Female,60000,0,Bachelors,Professional,No,1,3,North America,37,No
+87,15921,Single,Male,100000,3,Partial College,Professional,Yes,4,3,Europe,48,No
+88,16950,Married,Male,50000,1,Bachelors,Skilled Manual,Yes,1,7,North America,35,No
+89,21850,Married,Male,80000,1,High School,Professional,No,3,10,Europe,55,No
+90,28142,Single,Male,50000,0,High School,Professional,No,2,5,North America,32,Yes
+91,21480,Married,Male,40000,1,High School,Professional,No,2,1,North America,57,No
+92,11948,Married,Female,30000,0,High School,Skilled Manual,Yes,2,1,Pacific,55,No
+93,14180,Married,Male,100000,3,Bachelors,Management,Yes,4,2,Europe,60,No
+94,12596,Married,Male,30000,0,Graduate Degree,Clerical,Yes,0,8,Europe,45,No
+95,22496,Married,Female,30000,1,Bachelors,Skilled Manual,Yes,2,3,Europe,42,No
+96,20235,Single,Male,60000,4,Bachelors,Professional,Yes,3,11,Pacific,42,No
+97,16669,Single,Male,60000,0,Partial College,Professional,Yes,2,1,North America,32,No
+98,24213,Single,Male,10000,0,Partial College,Manual,No,2,3,Europe,55,Yes
+99,16326,Single,Male,10000,0,Partial High School,Manual,No,2,6,Europe,33,No

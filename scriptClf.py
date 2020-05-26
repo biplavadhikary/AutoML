@@ -1,4 +1,5 @@
 from scriptEncoding import encodeCategoricalColumns, reEncodeCategoricalColumns, decodeCategoricalColumns
+import joblib
 
 def generateClfModel(folderName, target_col, timer):
     import pandas as pd
@@ -15,7 +16,7 @@ def generateClfModel(folderName, target_col, timer):
     categories = df.select_dtypes(include='object').columns
     encoders = encodeCategoricalColumns(df, categories)
     X = df.loc[:, df.columns != target_col].values
-    Y = df.loc[:, [target_col]].values
+    Y = df.loc[:, target_col].values
 
     X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.1, random_state = 0)
 
@@ -33,7 +34,7 @@ def generateClfModel(folderName, target_col, timer):
     if not(os.path.exists(f'datasets/{folderName}')):
         os.mkdir(f'datasets/{folderName}') 
 
-    from sklearn.externals import joblib
+    #from sklearn.externals import joblib
     joblib.dump(tpot.fitted_pipeline_, f'./datasets/{folderName}/pipelineClf.pkl')
     joblib.dump(encoders, f'./datasets/{folderName}/encodersClf.pkl')
     tpot.export(f'./datasets/{folderName}/pipelineClf.py')
@@ -41,7 +42,7 @@ def generateClfModel(folderName, target_col, timer):
     return acc
 
 def predict_csv_clf(folderName, target_col):
-    from sklearn.externals import joblib
+    #from sklearn.externals import joblib
     from sklearn.preprocessing import LabelEncoder
     import pandas as pd
     
@@ -55,10 +56,10 @@ def predict_csv_clf(folderName, target_col):
     # dataset must not have the predictive column
     df = pd.read_csv(f'./datasets/{folderName}/test.csv')
     
-    X = df
+    X = df.copy()
     categories = X.select_dtypes(include='object').columns
     reEncodeCategoricalColumns(X, categories, encoders)
-    X= X.values
+    X = X.values
     #print('DF: ',df.shape,'\tX: ',X.shape)
 
     pred = pipeline.predict(X)
