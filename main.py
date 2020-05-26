@@ -3,6 +3,8 @@ from flask import Flask , render_template, request, url_for, redirect, session, 
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
+# configuration
+
 app = Flask(__name__)
 #app.config['SECRET_KEY'] = os.urandom(24)
 app.config['SECRET_KEY'] = b'\x8d[\xea\xfa\xa2?\x7fg\xa7\xad\xe1\xf4NhUu\xe1\xa8\xd9,*C\x8f\xb0'
@@ -28,7 +30,8 @@ class FileContents(db.Model):
     def __repr__ (self):
         return f'<Added {self.id}>'
 
-#db.create_all() #use it to create db
+# use it to create db
+#db.create_all()
 
 @app.route('/')
 def index():
@@ -55,6 +58,8 @@ def handleUpload():
 
     # extracting the attributes from header and save it to sesssion
     attr = extractAttribList('./datasets/'+uniqueName)
+
+    # using session to set frequent data instead of request args
     session['dataset'] = attr
     session['datasetTrueName'] = trueName #name without hash
     session['datasetName'] = uniqueName
