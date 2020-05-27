@@ -3,7 +3,7 @@
  Automate your dataset predictions and visualizations with this project
 
  ### LINK ###
- [Unfold It](https://www.unfoldit.herokuapp.com)
+ [Unfold It](https://unfoldit.herokuapp.com/)
 
  Features Added:
 
