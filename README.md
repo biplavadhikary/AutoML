@@ -2,7 +2,8 @@
  
  Automate your dataset predictions and visualizations with this project
 
- ### NOT PRODUCTION READY ###
+ ### LINK ###
+ [Unfold It](unfoldit.herokuapp.com)
 
  Features Added:
 
@@ -16,12 +17,20 @@
  * Classification
  * Prediction
  * Error Handling ( 70% )
+ * Updated Session initial values from DB
 
  To be Added:
 
  * Few other Error Handlers
- * Save some session values to DB
 
  Planned: 
 
  * Image Classification ( Dropped )
+
+ ### Setup this project using either of these two commands ###
+ 
+ # using pip
+ ```pip install -r requirements.txt```
+ 
+ # using conda
+ ```conda env create --name envname --file=environments.yml```
