@@ -3,7 +3,7 @@
  Automate your dataset predictions and visualizations with this project
 
  ### LINK ###
- [Unfold It](unfoldit.herokuapp.com)
+ [Unfold It](https://www.unfoldit.herokuapp.com)
 
  Features Added:
 
@@ -29,8 +29,8 @@
 
  ### Setup this project using either of these two commands ###
  
- # using pip
+ #### using pip
  ```pip install -r requirements.txt```
  
- # using conda
+ #### using conda
  ```conda env create --name envname --file=environments.yml```
