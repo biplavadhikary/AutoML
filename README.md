@@ -2,7 +2,8 @@
  
  Automate your dataset predictions and visualizations with this project
 
- ### NOT PRODUCTION READY ###
+ ### HOSTED ON ###
+ unfoldit.herokuapp.com
 
  Features Added:
 
@@ -16,11 +17,11 @@
  * Classification
  * Prediction
  * Error Handling ( 70% )
+ * Updated Session initial values from DB
 
  To be Added:
 
  * Few other Error Handlers
- * Save some session values to DB
 
  Planned: 
 
