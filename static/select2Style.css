@@ -1,0 +1,817 @@
+/*custom font*/
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+/*basic reset*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+    /*background: #6441A5;
+    background: -webkit-linear-gradient(to left, #6441A5, #2a0845);*/
+    background: #0f0c29;
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+
+}
+
+body {
+    font-family: montserrat, arial, verdana;
+    background: transparent;
+}
+
+.row {
+    margin: 0;
+}
+
+/*form styles*/
+
+#dataProp {
+    text-align: center;
+    position: relative;
+    margin-top: 30px;
+}
+
+#dataProp fieldset {
+    background: white;
+    border: 0 none;
+    border-radius: 0px;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+    padding: 20px 30px;
+    box-sizing: border-box;
+    width: 80%;
+    margin: 0 10%;
+    /*stacking fieldsets above each other*/
+    position: relative;
+}
+
+/*Hide all except first fieldset*/
+
+#dataProp fieldset:not(:first-of-type) {
+    display: none;
+}
+
+/*inputs*/
+
+#dataProp input, #dataProp textarea {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #2C3E50;
+    font-size: 13px;
+}
+
+#dataProp input:focus, #dataProp textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #ee0979;
+    outline-width: 0;
+    transition: All 0.5s ease-in;
+    -webkit-transition: All 0.5s ease-in;
+    -moz-transition: All 0.5s ease-in;
+    -o-transition: All 0.5s ease-in;
+}
+
+/*buttons*/
+
+#dataProp .action-button {
+    width: 100px;
+    background: #ee0979;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 25px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+}
+
+#dataProp .action-button:hover, #dataProp .action-button:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #ee0979;
+}
+
+#dataProp .action-button-previous {
+    width: 100px;
+    background: #C5C5F1;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 25px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+}
+
+#dataProp .action-button-previous:hover, #dataProp .action-button-previous:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #C5C5F1;
+}
+
+/*headings*/
+
+.fs-title {
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #2C3E50;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.fs-subtitle {
+    font-weight: normal;
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.fs-text {
+    font-weight: normal;
+    font-size: 20px;
+    text-align: left;
+    float: left;
+    color: rgb(53, 53, 53);
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .fs-text {
+        font-size: 12px;
+    }
+}
+
+/*progressbar*/
+
+#progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    /*CSS counters to number the steps*/
+    counter-reset: step;
+}
+
+#progressbar li {
+    list-style-type: none;
+    color: white;
+    text-transform: uppercase;
+    font-size: 9px;
+    width: 33.33%;
+    float: left;
+    position: relative;
+    letter-spacing: 1px;
+}
+
+#progressbar li:before {
+    content: counter(step);
+    counter-increment: step;
+    width: 24px;
+    height: 24px;
+    line-height: 26px;
+    display: block;
+    font-size: 12px;
+    color: #333;
+    background: white;
+    border-radius: 25px;
+    margin: 0 auto 10px auto;
+}
+
+/*progressbar connectors*/
+
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: white;
+    position: absolute;
+    left: -50%;
+    top: 9px;
+    z-index: -1;
+    /*put it behind the numbers*/
+}
+
+#progressbar li:first-child:after {
+    /*connector not needed before the first step*/
+    content: none;
+}
+
+/*marking active/completed steps green*/
+
+/*The number of the step and the connector before it = green*/
+
+#progressbar li.active:before, #progressbar li.active:after {
+    background: #ee0979;
+    color: white;
+}
+
+
+/* #################################################
+                Radio Animation
+   ################################################# */
+
+fieldset #selection {
+    list-style-type: none !important;
+    margin: auto;
+}
+
+#selection li {
+    position: relative;
+    padding: 10px;
+    padding-left: 30px;
+    height: 30px;
+    box-sizing: content-box;
+}
+
+#selection li label:before {
+    content: "";
+    width: 9px;
+    height: 9px;
+    background: #315cac;
+    position: absolute;
+    left: 5px;
+    top: calc(50% - 5px);
+    box-sizing: border-box;
+    border-radius: 50%;
+}
+
+input[type="radio"] {
+    opacity: 0;
+    -webkit-appearance: none;
+    display: inline-block;
+    vertical-align: middle;
+    z-index: 100;
+    margin: 0;
+    padding: 0;
+    width: 10%;
+    height: 30px;
+    position: absolute;
+    left: 0;
+    top: calc(50% - 15px);
+    cursor: pointer;
+}
+
+.bullet {
+    position: relative;
+    width: 15px;
+    height: 15px;
+    left: -3px;
+    top: 12px;
+    border: 5px solid #97b1e2;
+    opacity: 0;
+    border-radius: 50%;
+    box-sizing: content-box;
+}
+
+@media (max-width: 768px) {
+    .bullet {
+        width: 8px;
+        height: 8px;
+        border: 3px solid black;
+    }
+
+    #selection li label:before {
+        content: "";
+        width: 4px;
+        height: 4px;
+        background: grey;
+        position: absolute;
+        left: 2.5px;
+        top: calc(50% - 8px);
+        box-sizing: border-box;
+        border-radius: 50%;
+    }
+
+    #selection li {
+        padding-left: 20px;
+    }
+}
+
+input[type="radio"]:checked~.bullet {
+    position: absolute;
+    opacity: 1;
+    animation-name: explode;
+    animation-duration: 0.350s;
+}
+
+.line {
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    background-color: purple;
+    opacity: 0;
+}
+
+.line.zero {
+    left: 11px;
+    top: -21px;
+    transform: translateY(20px);
+    width: 2px;
+    height: 10px;
+}
+
+.line.one {
+    right: -7px;
+    top: -11px;
+    transform: rotate(-55deg) translate(-9px);
+}
+
+.line.two {
+    right: -20px;
+    top: 11px;
+    transform: translate(-9px);
+}
+
+.line.three {
+    right: -8px;
+    top: 35px;
+    transform: rotate(55deg) translate(-9px);
+}
+
+.line.four {
+    left: -8px;
+    top: -11px;
+    transform: rotate(55deg) translate(9px);
+}
+
+.line.five {
+    left: -20px;
+    top: 11px;
+    transform: translate(9px);
+}
+
+.line.six {
+    left: -8px;
+    top: 35px;
+    transform: rotate(-55deg) translate(9px);
+}
+
+.line.seven {
+    left: 11px;
+    bottom: -21px;
+    transform: translateY(-20px);
+    width: 2px;
+    height: 10px;
+}
+
+input[type="radio"]:checked~.bullet .line.zero {
+    animation-name: drop-zero;
+    animation-delay: 0.100s;
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+}
+
+input[type="radio"]:checked~.bullet .line.one {
+    animation-name: drop-one;
+    animation-delay: 0.100s;
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+}
+
+input[type="radio"]:checked~.bullet .line.two {
+    animation-name: drop-two;
+    animation-delay: 0.100s;
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+}
+
+input[type="radio"]:checked~.bullet .line.three {
+    animation-name: drop-three;
+    animation-delay: 0.100s;
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+}
+
+input[type="radio"]:checked~.bullet .line.four {
+    animation-name: drop-four;
+    animation-delay: 0.100s;
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+}
+
+input[type="radio"]:checked~.bullet .line.five {
+    animation-name: drop-five;
+    animation-delay: 0.100s;
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+}
+
+input[type="radio"]:checked~.bullet .line.six {
+    animation-name: drop-six;
+    animation-delay: 0.100s;
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+}
+
+input[type="radio"]:checked~.bullet .line.seven {
+    animation-name: drop-seven;
+    animation-delay: 0.100s;
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes explode {
+    0% {
+        opacity: 0;
+        transform: scale(10);
+    }
+    60% {
+        opacity: 1;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes drop-zero {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+        height: 10px;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-2px);
+        height: 0px;
+        opacity: 0;
+    }
+}
+
+@keyframes drop-one {
+    0% {
+        opacity: 0;
+        transform: rotate(-55deg) translate(-20px);
+        width: 10px;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(-55deg) translate(9px);
+        width: 0px;
+        opacity: 0;
+    }
+}
+
+@keyframes drop-two {
+    0% {
+        opacity: 0;
+        transform: translate(-20px);
+        width: 10px;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(9px);
+        width: 0px;
+        opacity: 0;
+    }
+}
+
+@keyframes drop-three {
+    0% {
+        opacity: 0;
+        transform: rotate(55deg) translate(-20px);
+        width: 10px;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(55deg) translate(9px);
+        width: 0px;
+        opacity: 0;
+    }
+}
+
+@keyframes drop-four {
+    0% {
+        opacity: 0;
+        transform: rotate(55deg) translate(20px);
+        width: 10px;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(55deg) translate(-9px);
+        width: 0px;
+        opacity: 0;
+    }
+}
+
+@keyframes drop-five {
+    0% {
+        opacity: 0;
+        transform: translate(20px);
+        width: 10px;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-9px);
+        width: 0px;
+        opacity: 0;
+    }
+}
+
+@keyframes drop-six {
+    0% {
+        opacity: 0;
+        transform: rotate(-55deg) translate(20px);
+        width: 10px;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(-55deg) translate(-9px);
+        width: 0px;
+        opacity: 0;
+    }
+}
+
+@keyframes drop-seven {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+        height: 10px;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(2px);
+        height: 0px;
+        opacity: 0;
+    }
+}
+
+/* ======================================================
+	 Neon toggle
+   ====================================================== */
+
+.toggle {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 0;
+    user-select: none;
+    border-radius: 24px;
+}
+
+.toggle--checkbox {
+    display: none;
+}
+
+.toggle--btn {
+    display: block;
+    margin: 0 auto;
+    font-size: 1.4em;
+    transition: all 350ms ease-in;
+}
+
+.toggle--btn:hover {
+    cursor: pointer;
+}
+
+.toggle--btn, .toggle--btn:before, .toggle--btn:after, .toggle--checkbox, .toggle--checkbox:before, .toggle--checkbox:after, .toggle--feature, .toggle--feature:before, .toggle--feature:after {
+    transition: all 250ms ease-in;
+}
+
+.toggle--btn:before, .toggle--btn:after, .toggle--checkbox:before, .toggle--checkbox:after, .toggle--feature:before, .toggle--feature:after {
+    content: '';
+    display: block;
+}
+
+@keyframes neon {
+    0% {
+        text-shadow: 0 0 10px #fff, 0 0 15px #fff, 0 0 25px #fff, 0 0 40px #99b4ff, 0 0 70px #668fff, 0 0 90px #3369ff, 0 0 90px #0044ff;
+    }
+    100% {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #99b4ff, 0 0 35px #668fff, 0 0 40px #3369ff, 0 0 50px #0044ff;
+    }
+}
+
+.toggle--neon {
+    background-color: #0f0c29;
+    margin-top: 0;
+    padding: 30px 0;
+}
+
+.toggle--neon .toggle--btn {
+    text-transform: uppercase;
+    font-size: 1.5em;
+    color: aliceblue;
+    text-shadow: 0 0 10px transparent, 0 0 15px transparent, 0 0 25px transparent, 0 0 40px transparent, 0 0 70px transparent, 0 0 90px transparent, 0 0 90px transparent;
+}
+
+.toggle--neon .toggle--btn:before, .toggle--neon .toggle--btn:after {
+    display: inline-block;
+    position: relative;
+    margin: 0 20px;
+    transition: all 220ms ease-in-out;
+}
+
+.toggle--neon .toggle--btn:before {
+    content: attr(data-label-off);
+    animation: neon 1.5s ease-in-out infinite alternate;
+    animation-delay: 90ms;
+    color: #d6dfe7;
+}
+
+.toggle--neon .toggle--btn:after {
+    content: attr(data-label-on);
+}
+
+.toggle--neon .toggle--checkbox:checked+.toggle--btn:before {
+    animation: none;
+    color: aliceblue;
+}
+
+.toggle--neon .toggle--checkbox:checked+.toggle--btn:after {
+    animation: neon 1.5s ease-in-out infinite alternate;
+    animation-delay: 90ms;
+    color: #f1f1f1;
+}
+
+/* ======================================================
+	 Footer
+	 ====================================================== */
+
+.footerDrawer {
+    width: 280px;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    margin-left: -140px;
+    border-radius: 10px 10px 0 0;
+    color: black;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 100;
+    white-space: nowrap;
+    z-index: 300;
+    -webkit-box-shadow: 0 0 20px rgba(0,0,0,.3);
+    box-shadow: 0 0 20px rgba(0,0,0,.3);
+}
+
+
+.footerDrawer .open {
+    padding: 10px 20px;
+    border-radius: 10px 10px 0 0;
+    background-color: white;
+
+}
+
+.footerDrawer .content {
+    height: auto;
+    background-color: whitesmoke;
+    display: none;
+}
+
+input.token-box {
+    height: 42px;
+    padding: 0 35px;
+    margin: 0 auto;
+    outline: none;
+    border: none;
+    background-color: #dddddd;
+    color: black;
+}
+
+.token-box {
+    position: relative;
+    display: block;
+    width: 80%;
+    background: #fff;
+    border-radius: 31px;
+    font-size: 1em;
+    color: #8f8fa1;
+    line-height: 1.2;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    opacity: 1;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 140px;
+    background-color: #464646;
+    color: #fff;
+    text-align: center;
+    text-transform: none;
+    font-weight: 100;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -75px;
+    transition: opacity 0.3s;
+    overflow: hidden;
+    padding: 10px;
+    text-shadow: initial;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.myAlert-bottom{
+    position: fixed;
+    bottom: 30px;
+    left:2%;
+    width: 96%;
+    z-index: 200;
+}
+
+.myAlert-top{
+    position: fixed;
+    top: 5px;
+    z-index: 200;
+}
+
+/* Sticky Bar */
+
+#social-sidebar {
+	left: 0;
+	position: fixed;
+    top: 50%;
+    margin-top: -25px;
+}
+#social-sidebar li:first-child a { border-top-right-radius: 5px; }
+#social-sidebar li:last-child a { border-bottom-right-radius: 5px; }
+ 
+#social-sidebar a {
+	background: rgba(0, 0, 0, .7);
+	color: #fff;
+    text-decoration: none;
+	display: block;
+	height: 50px;
+	width: 30px;  
+	font-size: 14px;
+	line-height: 50px;
+	position: relative;
+	text-align: center;
+    cursor: pointer;
+}
+#social-sidebar a:hover span {
+	left: 120%;
+	opacity: 1;
+}
+
+#social-sidebar a span {
+  font: 12px "Open Sans", sans-serif;
+  text-transform: uppercase;
+	border-radius: 3px;
+	line-height: 24px;
+	left: -100%;
+	margin-top: -16px;
+	opacity: 0;
+	padding: 4px 8px;
+	position: absolute;
+	transition: opacity .3s, left .4s;
+	top: 50%;
+	z-index: -1;
+}
+ 
+#social-sidebar a span:before {
+	content: "";
+	display: block;
+	height: 8px;
+  width: 8px;
+	left: -4px;
+	margin-top: -4px;
+	position: absolute;
+	top: 50%;
+	transform: rotate(45deg);
+}
+ 
+#social-sidebar a[class*="fa-home"]:hover,
+#social-sidebar a[class*="fa-home"] span,
+#social-sidebar a[class*="fa-home"] span:before {background: #198f8f;}

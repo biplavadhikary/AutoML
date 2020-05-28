@@ -1,0 +1,96 @@
+[
+    {
+        "name": "scatter",
+        "heading": "Scatter Plot of each Continuous Variable against Target Variable",
+        "plots": [
+            [
+                "<<non-serializable: bytes>>"
+            ]
+        ],
+        "subheading": [],
+        "desc": [],
+        "loc": [
+            "scatter-1-1.png"
+        ]
+    },
+    {
+        "name": "pair-scatter",
+        "heading": "Pairwise Scatter Plot of each Continuous Variable against other Continuous Variables",
+        "plots": [
+            [
+                "<<non-serializable: bytes>>"
+            ]
+        ],
+        "subheading": [],
+        "desc": [],
+        "loc": [
+            "pair-scatter-1-1.png"
+        ]
+    },
+    {
+        "name": "distribution",
+        "heading": "Distribution Plot of Target Variable",
+        "plots": [],
+        "subheading": [],
+        "desc": [],
+        "loc": []
+    },
+    {
+        "name": "pivot",
+        "heading": "Pivot Plots of all Continuous Variable",
+        "plots": [],
+        "subheading": [],
+        "desc": [],
+        "loc": []
+    },
+    {
+        "name": "violin",
+        "heading": "Violin Plots of all Continuous Variable",
+        "plots": [
+            [
+                "<<non-serializable: bytes>>"
+            ]
+        ],
+        "subheading": [],
+        "desc": [],
+        "loc": [
+            "violin-1-1.png"
+        ]
+    },
+    {
+        "name": "heatmap",
+        "heading": "Heatmap of all Continuous Variables for target Variable",
+        "plots": [
+            [
+                "<<non-serializable: bytes>>"
+            ]
+        ],
+        "subheading": [],
+        "desc": [],
+        "loc": [
+            "heatmap-1-1.png"
+        ]
+    },
+    {
+        "name": "bar",
+        "heading": "Bar Plots of Average of each Continuous Variable by Target Variable",
+        "plots": [
+            [
+                "<<non-serializable: bytes>>"
+            ]
+        ],
+        "subheading": [],
+        "desc": [],
+        "loc": [
+            "bar-1-1.png"
+        ]
+    },
+    {
+        "name": "time-series",
+        "heading": "Time Series Plots of Two Continuous Variables against a Date/Time Variable",
+        "plots": [],
+        "subheading": [],
+        "desc": [],
+        "loc": []
+    }
+]

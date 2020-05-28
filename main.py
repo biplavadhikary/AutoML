@@ -92,12 +92,12 @@ def select(showDatasetName):
     if 'dataset' in session.keys():
         attrib = session['dataset']
     else:
-        attrib = ['Upload your dataset first', 'Go Back To Index']
+        attrib = ['Upload your ', ' Dataset First ']
 
     if showDatasetName == '0':
-        return render_template('selection.html',attrib=attrib,showDatasetName=False)
+        return render_template('select2.html',attrib=attrib,showDatasetName=False)
     elif showDatasetName == '1':
-        return render_template('selection.html',attrib=attrib,showDatasetName=True)
+        return render_template('select2.html',attrib=attrib,showDatasetName=True)
 
 @app.route('/generate-proc',methods=['POST'])
 def GenerateProc():
@@ -149,10 +149,10 @@ def generate():
         plottypes = None
         with open(f'./datasets/{folderName}/plotTypes.json') as infile:
             plottypes = json.load(infile)
-        return render_template('visualize.html',folderName=folderName,plottypes=plottypes)
+        return render_template('plots.html',folderName=folderName,plottypes=plottypes)
 
     # regression processing
-    elif problem == 'prediction':
+    elif problem == 'regression':
         acc = session['accuracyReg']
 
         # create a model right now
@@ -263,7 +263,7 @@ def renderTable():
     testURL = f'{folderName}/test_predicted.csv'
     status = None
 
-    if problem ==  'prediction':
+    if problem ==  'regression':
         from scriptReg import predict_csv_reg
         status = predict_csv_reg(folderName, target)
 

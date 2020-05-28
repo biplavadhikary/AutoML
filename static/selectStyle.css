@@ -8,6 +8,8 @@
 body {
 	margin: 0;
 	background: #c4e3ed;
+	background: -webkit-linear-gradient(-135deg, #ffffff, #9cecfc);
+	background: linear-gradient(-135deg, #ffffff, #9cecfc);
 	color: darkslategray;
 	font-family: 'Roboto';
 	font-weight: 500;
