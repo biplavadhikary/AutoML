@@ -14,9 +14,13 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
+# url to download files
+
 @app.route('/datasets/<path:filename>', methods=["GET"])
 def getFile(filename):
     return send_from_directory(app.config['DATASET_FOLDER'], filename)
+
+# defining table for SQLAlchemy
 
 class FileContents(db.Model):
     id = db.Column(db.String(300),primary_key=True)
@@ -35,55 +39,61 @@ class FileContents(db.Model):
 # use it to create db
 #db.create_all()
 
+# Routes
+
 @app.route('/')
 def index():
     return render_template('index.html', noDataset=False, wrongToken=False)
 
-@app.route('/handleUpload',methods=['POST'])
+@app.route('/handleUpload',methods=['POST','GET'])
 def handleUpload():
-    #f = request.files['dataset']
-    if request.files['dataset'].filename == '':
-        return render_template('index.html', noDataset=True, wrongToken=False)
-    else:
-        f = request.files.get('dataset')
+    if request.method == 'POST':
+        #f = request.files['dataset']
+        if request.files['dataset'].filename == '':
+            return render_template('index.html', noDataset=True, wrongToken=False)
+        else:
+            f = request.files.get('dataset')
 
-    from dataProc import generateHash,addPrefix,extractAttribList
-    # generate a unique filename to make it thread safe
-    trueName = f.filename
-    hashCode = generateHash(trueName)
-    uniqueName = addPrefix(hashCode, trueName)
-    f.save(os.path.join('./datasets', uniqueName))
+        from dataProc import generateHash,addPrefix,extractAttribList
+        # generate a unique filename to make it thread safe
+        trueName = f.filename
+        hashCode = generateHash(trueName)
+        uniqueName = addPrefix(hashCode, trueName)
+        f.save(os.path.join('./datasets', uniqueName))
 
-    # create a subfolder for the dataset
-    folderName= uniqueName.split('.')[0]
-    os.mkdir(f'./datasets/{folderName}') 
+        # create a subfolder for the dataset
+        folderName= uniqueName.split('.')[0]
+        os.mkdir(f'./datasets/{folderName}') 
 
-    # extracting the attributes from header and save it to sesssion
-    attr = extractAttribList('./datasets/'+uniqueName)
+        # extracting the attributes from header and save it to sesssion
+        attr = extractAttribList('./datasets/'+uniqueName)
 
-    # using session to set frequent data instead of request args
-    session['dataset'] = attr
-    session['datasetTrueName'] = trueName #name without hash
-    session['datasetName'] = uniqueName
-    session['modelClfExists'] = False
-    session['vizPlotsExists'] = False
-    session['modelRegExists'] = False
-    session['accuracyClf'] = 0.0
-    session['accuracyReg'] = 0.0
+        # using session to set frequent data instead of request args
+        session['dataset'] = attr
+        session['datasetTrueName'] = trueName #name without hash
+        session['datasetName'] = uniqueName
+        session['modelClfExists'] = False
+        session['vizPlotsExists'] = False
+        session['modelRegExists'] = False
+        session['accuracyClf'] = 0.0
+        session['accuracyReg'] = 0.0
 
-    # save to db for later use
-    new_dataset = FileContents(id=hashCode,name=trueName,attrib_list=str(attr))
-    try:
-        db.session.add(new_dataset)
-        db.session.commit()
-        return redirect(url_for('select',showDatasetName='0'))
+        # save to db for later use
+        new_dataset = FileContents(id=hashCode,name=trueName,attrib_list=str(attr))
+        try:
+            db.session.add(new_dataset)
+            db.session.commit()
+            return redirect(url_for('select',showDatasetName='0'))
 
-    except Exception as e:
-        return render_template('errorDisplay.html', error={
-            'code': 'Error',
-            'title': 'Database Commit Error',
-            'info': 'An error occured while committing to the database. Please contact the admin'
-        })
+        except Exception as e:
+            return render_template('errorDisplay.html', error={
+                'code': 'Error',
+                'title': 'Database Commit Error',
+                'info': 'An error occured while committing to the database. Please contact the admin'
+            })
+    # user may reach this url accidently, so redirect it that time
+    if request.method == 'GET':
+        return redirect(url_for('index', noDataset=False, wrongToken=False))
 
 @app.route('/select/<showDatasetName>')
 def select(showDatasetName):
@@ -99,7 +109,7 @@ def select(showDatasetName):
     elif showDatasetName == '1':
         return render_template('select2.html',attrib=attrib,showDatasetName=True)
 
-@app.route('/generate-proc',methods=['POST'])
+@app.route('/generate-proc',methods=['POST', 'GET'])
 def GenerateProc():
     if request.method == 'POST':
         session['option'] = request.form.get('problem')
@@ -107,6 +117,11 @@ def GenerateProc():
         session['timer'] = request.form.get('timer')
         session['load_model'] = request.form.get('load_model') or 'off'
         return render_template('preloading.html')
+
+    # user may reach this url accidently, so redirect it that time
+    if request.method == 'GET':
+        return redirect(url_for('select',showDatasetName='1'))
+
 
 @app.route('/generate')
 def generate():
@@ -245,15 +260,20 @@ def generate():
 
             return render_template('modelDisplay.html',folderName=folderName, code=code, log=log, acc=acc)
 
-@app.route('/handleTest', methods=['POST'])
+@app.route('/handleTest', methods=['POST', 'GET'])
 def handleTest():
-    if request.files['testset'].filename == '':
-        return render_template('modelDisplay.html', noDataset=True)
-    else:
-        f = request.files.get('testset')
-        folderName = session['datasetName'].split('.')[0]
-        f.save(os.path.join(f'./datasets/{folderName}', 'test.csv'))
-        return redirect(url_for('renderTable'))
+    if request.method == 'POST':
+        if request.files['testset'].filename == '':
+            return render_template('modelDisplay.html', noDataset=True)
+        else:
+            f = request.files.get('testset')
+            folderName = session['datasetName'].split('.')[0]
+            f.save(os.path.join(f'./datasets/{folderName}', 'test.csv'))
+            return redirect(url_for('renderTable'))
+
+    # user may reach this url accidently, so redirect it that time
+    if request.method == 'GET':
+        return redirect(url_for('select',showDatasetName='1'))
 
 @app.route('/renderTable')
 def renderTable():
@@ -280,7 +300,7 @@ def renderTable():
             'info': 'Make sure you have created the Model previously'
         })
 
-@app.route('/checkToken', methods=['POST'])
+@app.route('/checkToken', methods=['POST', 'GET'])
 def checkToken():
     if request.method == 'POST':
         hashCode = request.form.get('tokenCode').strip()
@@ -300,6 +320,10 @@ def checkToken():
             setModelExistenceInfo(dataid = session['datasetName'].split('_')[0])
 
             return redirect(url_for('select',showDatasetName='1'))
+
+    # user may reach this url accidently, so redirect it that time
+    if request.method == 'GET':
+        return redirect(url_for('index', noDataset=False, wrongToken=False))
 
 @app.route('/about')
 def renderAbout():

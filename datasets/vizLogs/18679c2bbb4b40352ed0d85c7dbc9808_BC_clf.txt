@@ -1,0 +1,24 @@
+Shape of your Data Set: (569, 32)
+Classifying variables in data set...
+    31 Predictors classified...
+        This does not include the Target column(s)
+    1 variables removed since they were ID or low-information variables
+    List of variables removed: ['id']
+30 numeric variables in data exceeds limit, taking top 30 variables
+Number of numeric variables = 30
+    Number of variables removed due to high correlation = 25 
+    Adding 0 categorical variables to reduced numeric variables  of 5
+Selected No. of variables = 5 
+Finding Important Features...
+    Found 5 important features
+Classifying variables in data set...
+    5 Predictors classified...
+        This does not include the Target column(s)
+    No variables removed since no ID or low-information variables found in data
+    List of variables removed: []
+Total Number of Scatter Plots = 15
+No categorical or boolean vars in data set. Hence no pivot plots...
+Nothing to add Plot not being added
+Nothing to add Plot not being added
+All plots done
+Time to run AutoViz (in seconds) = 23.344

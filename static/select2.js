@@ -91,22 +91,19 @@ $(".submit").click(function () {
   var problem = $('#dataProp').find('input[name="problem"]:checked').val();
   var load = $('#dataProp').find('input[name="load_model"]:checked').val();
   
-  if (problem === "visualization") {
-    $('#timer').prop('required', false);
-  } 
-  else {
-    $('#timer').prop('required', true);
-  }
-
   if (load === "on") {
     $('#target_y').prop('required', false);
     $('#timer').prop('required', false);
   }
   else {
+    if (problem === "visualization") {
+      $('#timer').prop('required', false);
+    } 
+    else {
+      $('#timer').prop('required', true);
+    }
     $('#target_y').prop('required', true);
-    $('#timer').prop('required', true);
   }
-
 });
 
 /* ======================================================
