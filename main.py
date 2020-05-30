@@ -45,6 +45,10 @@ class FileContents(db.Model):
 def index():
     return render_template('index.html', noDataset=False, wrongToken=False)
 
+@app.route('/home')
+def homePage():
+    return render_template('home.html')
+
 @app.route('/handleUpload',methods=['POST','GET'])
 def handleUpload():
     if request.method == 'POST':
