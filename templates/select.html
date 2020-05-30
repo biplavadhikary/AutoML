@@ -2,17 +2,19 @@
 	<title>Select Model</title>
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/styleSelection.css') }}">
 	<link rel="icon" href="{{ url_for('static', filename='/favicon.ico') }}" type="image/gif" sizes="96x96">
-	<script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
-	<script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" data-auto-replace-svg="nest" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.5.0.min.js"
+		integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+	<script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" data-auto-replace-svg="nest"
+		crossorigin="anonymous"></script>
 </head>
 
 <body>
 	<div id="datasetAlert" class="alert" style="text-align: center;">
-		<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+		<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
 		{% if showDatasetName %}
-			<strong>Dataset: &nbsp;</strong>You are working on {{ session["datasetTrueName"] }} !
+		<strong>Dataset: &nbsp;</strong>You are working on {{ session["datasetTrueName"] }} !
 		{% else %}
-			<strong>Note: &nbsp;</strong>Make sure your dataset is prepocessed & free of useless features !
+		<strong>Note: &nbsp;</strong>Make sure your dataset is prepocessed & free of useless features !
 		{% endif %}
 	</div>
 	<form id="dataProp" action="/generate-proc" method="POST" enctype="multipart/form-data">
@@ -71,10 +73,10 @@
 				<h4>Choose Target (Y) column</h4>
 				<div class="custom-select" style="width:200px;">
 					<select id="target_y" name="target_y" required>
-					  <option value="#">Attributes</option>
-					  {% for i in attrib %}
-					  	<option value="{{ i }}">{{ i }}</option>
-					  {% endfor %}
+						<option value="#">Attributes</option>
+						{% for i in attrib %}
+						<option value="{{ i }}">{{ i }}</option>
+						{% endfor %}
 					</select>
 				</div>
 				<div class="custom-select" style="width:200px;">
@@ -92,7 +94,7 @@
 				<h4 style="margin-bottom: 10px;">Press Load if You have already created the Model</h4>
 				<div class="toggle toggle--neon">
 					<input name="load_model" type="checkbox" id="toggle--neon" class="toggle--checkbox">
-					<label class="toggle--btn" for="toggle--neon" data-label-on="Load"  data-label-off="Create"></label>
+					<label class="toggle--btn" for="toggle--neon" data-label-on="Load" data-label-off="Create"></label>
 				</div>
 			</div>
 			<div class="slideparent">
@@ -103,12 +105,12 @@
 					<a href="#" class="slide next round" onclick="nextPrev(1)">
 						<i class='fas fa-chevron-right' style='font-size:24px'></i>
 					</a>
-			</div>
+				</div>
 			</div>
 			<div class="step-grp">
 				<span class="step"></span>
 				<span class="step"></span>
-			  </div>
+			</div>
 		</div>
 	</form>
 
@@ -116,8 +118,9 @@
 		<div class="open">Want to use this dataset again?</div>
 		<div class="content">
 			<div style="padding: 10px 0; width: 100%;">Click below to copy the token</div>
-			<input id="token" class="input100" type="text" name="name" 
-			value="{% if 'datasetName' in session.keys() %}{{session['datasetName'].split('_')[0]}}{% else %}{{'Not Dataset Chosen'}}{% endif %}" placeholder="Token" readonly>
+			<input id="token" class="input100" type="text" name="name"
+				value="{% if 'datasetName' in session.keys() %}{{session['datasetName'].split('_')[0]}}{% else %}{{'Not Dataset Chosen'}}{% endif %}"
+				placeholder="Token" readonly>
 			<div class="tooltip">
 				<a onclick="copyToClipboard()" onmouseout="outFunc()" href="#" class="copy-btn">
 					<span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
@@ -126,10 +129,13 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="icon-bar">
 		<a href="/" class="home"><i class="fas fa-home"></i></a>
 	</div>
+	<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+	<df-messenger intent="WELCOME" chat-title="Shadow" agent-id="e919c902-795e-4039-83b3-a31653c1f483"
+		language-code="en"></df-messenger>
 </body>
 
 <script src="{{ url_for('static', filename='/styleJs.js') }}"></script>

@@ -1,4 +1,4 @@
-,fixed.acidity,volatile.acidity,citric.acid,residual.sugar,chlorides,free.sulfur.dioxide,total.sulfur.dioxide,density,pH,sulphates,alcohol,quality (Predicted)
+,fixed.acidity,volatile.acidity,citric.acid,residual.sugar,chlorides,free.sulfur.dioxide,total.sulfur.dioxide,density,pH,sulphates,alcohol, (Predicted)
 0,7.1,0.63,0.06,2.0,0.083,8.0,29.0,0.99855,3.67,0.73,9.6,5
 1,6.2,0.56,0.09,1.7,0.053,24.0,32.0,0.99402,3.54,0.6,11.3,5
 2,8.8,0.4,0.4,2.2,0.079,19.0,52.0,0.998,3.44,0.64,9.2,5

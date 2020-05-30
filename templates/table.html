@@ -37,6 +37,10 @@
             download="{{ session['datasetName'].split('_')[1] }}_test_results.csv">Download it</a>
         </div>-->
     </div>
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <df-messenger chat-title="Shadow" agent-id="e919c902-795e-4039-83b3-a31653c1f483"
+        language-code="en" chat-icon="{{ url_for('static', filename='/botIcon.svg') }}"
+        style="--df-messenger-button-titlebar-color: #424242;"></df-messenger>
 </body>
 
 </html>
