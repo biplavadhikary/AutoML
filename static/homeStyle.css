@@ -369,6 +369,7 @@ h1::after {
 .show-btn {
     background-color: #2196f3;
     border-radius: 3px;
+    color: white;
     display: inline-block;
     font-size: 18px;
     padding: 7px 25px;
@@ -377,7 +378,8 @@ h1::after {
 
 .show-btn:hover {
     border-color: 1px solid #fff;
-    background-color: #3f51;
+    background-color: #3f51 !important;
+    color: darkcyan !important;
 }
 
 a {
